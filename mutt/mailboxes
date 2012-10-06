@@ -1,21 +1,7 @@
 mailboxes =mairix-search
-mailboxes =Inbox
-mailboxes =Archives/Old
-mailboxes =M-Inbox
-
-mailboxes =Family
-mailboxes =Family/All
-mailboxes =Family/Dad
-mailboxes =Family/SBSMon
-mailboxes =School
-mailboxes =Fitness
-mailboxes =Financial
-mailboxes =Networking
-mailboxes =Postcrossing
-mailboxes =Work
-
-mailboxes =Lists
-mailboxes =Lists/ACM
-mailboxes =Lists/Mutt
-
-mailboxes =Spam
+mailboxes =+chris-moultrie.org/INBOX
+mailboxes =+chris-moultrie.org/Archive
+mailboxes =+chris-moultrie.org/Sent Items
+mailboxes =+chris-moultrie.org/Drafts
+mailboxes =+chris-moultrie.org/Deleted Items
+mailboxes =+chris-moultrie.org/Junk E-mail

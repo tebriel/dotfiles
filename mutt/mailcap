@@ -1,0 +1,23 @@
+# $Id: sample.mailcap,v 3.0 2002/01/24 12:11:17 roessler Exp $
+
+# ~/.mutt/mailcap
+#
+# this uses the view_attachment script found in ~/.mutt/view_attachment.sh
+#
+# this is meant for an OS X system
+
+# Images
+image/jpeg; /Users/tebriel/.mutt/view_attachment.sh %s
+image/pjpeg; /Users/tebriel/.mutt/view_attachment.sh %s
+image/png; /Users/tebriel/.mutt/view_attachment.sh %s
+image/gif; /Users/tebriel/.mutt/view_attachment.sh %s
+
+# PDF
+application/pdf; /Users/tebriel/.mutt/view_attachment.sh %s pdf
+
+# HTML
+# -- always use lynx; it's gay to use safari for this
+text/html; elinks -force-html %s
+
+# Unidentified.
+application/octet-stream; /Users/tebriel/.mutt/view_attachment.sh %s "-" 

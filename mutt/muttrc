@@ -16,10 +16,16 @@ set hidden_host                           # Hide host details.
 set envelope_from			  # set the envelope-from information
 set reverse_name=yes			  # build From: in the reply based on the To: address (must have
 					  # a working 'alternates' line above
-set spoolfile=~/.mutt/Inbox		  # default location of new mail
+set folder=~/.mail                        # Mailbox location
+set header_cache=~/.mutt/cache/headers    # Where mutt should store its header cache
+set message_cachedir=~/.mutt/cache/bodies # This is where we hide the bodies
+set certificate_file=~/.mutt/certificates # where to store certs
+set tmpdir=~/.mutt/temp                   # where to store files temporarily
+set mbox_type=Maildir                     # mailbox type
+set spoolfile="+chris-moultrie.org/INBOX" # default location of new mail
 set alias_file=~/.mutt/aliases            # Keep aliases in this file.
 set postpone=ask-no                       # Ask about postponing.
-set postponed=+postponed                  # Where postponed messages live.
+set postponed="+chris-moultrie.org/Drafts"# Where postponed messages live.
 set nomove                                # Hold messages in $MAIL.
 set print=ask-yes                         # Ask before printing.
 set delete=ask-yes                        # Ask before doing a delete.
@@ -40,7 +46,7 @@ set fast_reply				  # skip initial prompts when replying
 set editor="vim +13 -c 'set tw=72 ft=mail noautoindent spell'"
 set query_command="/sw/bin/lbdbq '%s'"	  # Use the little brother database for doing queries.
 set nomark_old                            # Don't mark unread new msgs as old.
-set mbox=+Inbox                           # Default mailbox.
+set mbox="chris-moultrie.org/INBOX"       # Default mailbox.
 # these are handled by our fcc-hook
 #set copy                                  # Keep copies of outgoing mail...
 #set record="=Archives/sentmail-`date +%Y-%m`"  # ... and it gets saved in =Archives/sentmail-[year]-[month].
@@ -64,7 +70,7 @@ set write_inc=100                         # Write counter ticks every 100 msgs.
 set noconfirmappend                       # Just append, don't hassle me.
 set pager_stop                            # Don't skip msgs on next page.
                                           # Where to find the mailcap.
-set mailcap_path="~/.mailcap"
+set mailcap_path="~/.mutt/mailcap"
                                           # What we consider to be a quote.
 set quote_regexp="^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 set to_chars=" +TCF "                     # Drop the "L".
