@@ -16,12 +16,9 @@ color sidebar_new yellow default
 
 # alt-n, alt-p to select next/prev folder
 # alt-o to open selected folder (doesn't seem to work??)
-bind index \ep	sidebar-prev
-bind index \en	sidebar-next
-bind index \eo	sidebar-open
-bind pager \ep	sidebar-prev
-bind pager \en	sidebar-next
-bind pager \eo	sidebar-open
+bind index,pager \ep   sidebar-prev
+bind index,pager \en sidebar-next
+bind index,pager \eo sidebar-open
 
 # I don't need these.  just for documentation purposes.  See below.
 # sidebar-scroll-up

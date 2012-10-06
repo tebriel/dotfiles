@@ -20,7 +20,7 @@ set folder=~/.mail                        # Mailbox location
 set header_cache=~/.mutt/cache/headers    # Where mutt should store its header cache
 set message_cachedir=~/.mutt/cache/bodies # This is where we hide the bodies
 set certificate_file=~/.mutt/certificates # where to store certs
-set tmpdir=~/.mutt/temp                   # where to store files temporarily
+set tmpdir=/tmp                           # where to store files temporarily
 set mbox_type=Maildir                     # mailbox type
 set spoolfile="+chris-moultrie.org/INBOX" # default location of new mail
 set alias_file=~/.mutt/aliases            # Keep aliases in this file.
@@ -56,8 +56,9 @@ set nomarkers                             # Don't want any wrap markers.
 set mime_forward                          # Forward message as MIME attachments.
 set pager_context=3                       # Display 3 lines of context in pager.
 set nostrict_threads                      # Lets have some fuzzy threading.
-set sendmail_wait=-1                      # Don't wait around for sendmail.
-set sendmail="/usr/sbin/sendmail"		  # The path to sendmail
+set sendmail_wait=0                       # wait around for sendmail. (-1 was previous value)
+set sendmail="/usr/local/bin/msmtp -a moultrie" # The path to sendmail
+unset record
 set fcc_clear                             # Keep fcc's clear of signatues and encryption.
 set nopipe_decode                         # Don't decode messages when piping.
 set text_flowed				  # label messages as format-flowed
@@ -82,9 +83,9 @@ source ~/.mutt/save-hooks		  # Define save-hooks.
 source ~/.mutt/message-hooks		  # Define message hooks.
 source ~/.mutt/bindings			  # Define key bindings.
 source ~/.mutt/macros			  # Define macros.
-source ~/.mutt/colours			  # Define colours.
+#source ~/.mutt/colours			  # Define colours.
 source ~/.mutt/sidebar			  # Define sidebar support (requires sidebar patch)
-source ~/.mutt/gpg                        # GPG File
+#source ~/.mutt/gpg                        # GPG File
 source ~/.mutt/defaults                   # Default Sig
 ##source ~/.mutt/non-standard		  # Support for mutt patches.
 

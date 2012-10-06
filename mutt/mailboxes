@@ -1,7 +1,7 @@
 mailboxes =mairix-search
-mailboxes =+chris-moultrie.org/INBOX
-mailboxes =+chris-moultrie.org/Archive
-mailboxes =+chris-moultrie.org/Sent Items
-mailboxes =+chris-moultrie.org/Drafts
-mailboxes =+chris-moultrie.org/Deleted Items
-mailboxes =+chris-moultrie.org/Junk E-mail
+mailboxes =chris-moultrie.org/INBOX
+mailboxes =chris-moultrie.org/Archive
+mailboxes ="chris-moultrie.org/Sent Items"
+mailboxes =chris-moultrie.org/Drafts
+mailboxes ="chris-moultrie.org/Deleted Items"
+mailboxes ="chris-moultrie.org/Junk E-mail"

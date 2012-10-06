@@ -16,7 +16,7 @@ image/gif; /Users/tebriel/.mutt/view_attachment.sh %s
 application/pdf; /Users/tebriel/.mutt/view_attachment.sh %s pdf
 
 # HTML
-# -- always use lynx; it's gay to use safari for this
+# -- always use lynx; it's dumb to use safari for this
 text/html; elinks -force-html %s
 
 # Unidentified.
