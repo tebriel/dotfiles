@@ -1,0 +1,25 @@
+[general]
+ui = ttyui
+accounts = Moultrie
+pythonfile=~/.mutt/offlineimap.py
+fsync = False
+
+[Account Moultrie]
+localrepository = Moultrie-Local
+remoterepository = Moultrie-Remote
+status_backend = sqlite
+postsynchook = notmuch new
+
+[Repository Moultrie-Local]
+type = Maildir
+localfolders = ~/.mail/chris-moultrie.org
+
+[Repository Moultrie-Remote]
+maxconnections = 1
+type = IMAP
+remoteuser = moultrie\chris
+remotepasseval = get_keychain_pass(account="\'moultrie\\chris\'", server="remote.moultrie.org")
+remotehost = remote.moultrie.org
+realdelete = no
+ssl = yes
+cert_fingerprint = 8eebcf725253f452178c9e5c606cd11c87d44f52
