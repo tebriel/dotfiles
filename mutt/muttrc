@@ -44,7 +44,7 @@ set fast_reply				  # skip initial prompts when replying
                                           # Use vim
 #set editor="/Users/vdanen/bin/mate_mutt"
 set editor="vim +13 -c 'set tw=72 ft=mail noautoindent spell'"
-set query_command="/sw/bin/lbdbq '%s'"	  # Use the little brother database for doing queries.
+set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
 set nomark_old                            # Don't mark unread new msgs as old.
 set mbox="chris-moultrie.org/INBOX"       # Default mailbox.
 # these are handled by our fcc-hook
@@ -86,6 +86,7 @@ source ~/.mutt/macros			  # Define macros.
 #source ~/.mutt/colours			  # Define colours.
 source ~/.mutt/sidebar			  # Define sidebar support (requires sidebar patch)
 #source ~/.mutt/gpg                        # GPG File
+source ~/.mutt/smime                      # smime file
 source ~/.mutt/defaults                   # Default Sig
 ##source ~/.mutt/non-standard		  # Support for mutt patches.
 
