@@ -5,6 +5,11 @@
 bind index @ noop		# null out any folder specific keys
 set signature=~/.mutt/signature.moultrie	# set the default signature
 set pager_index_lines=15	# start off with index footer in pager
+set smime_sign_as ="9111058e.0"
+set crypt_autosign = yes
+set crypt_replyencrypt = no
+set crypt_replysign = yes
+set crypt_replysignencrypted = no
 #set pgp_sign_as=0xABABB684
 #set pgp_encrypt_only_command="pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 0xABABB684 -- -r %r -- %f"
 #set pgp_encrypt_sign_command="pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 0xABABB684 -- -r %r -- %f"
@@ -27,7 +32,7 @@ my_hdr X-URL: http://www.moultrie.org
 my_hdr X-Mailer: Mutt 1.5.x/OS X 10.8.x
 
 reset abort_nosubject			# by default use the default value for abort_nosubject
-set pgp_verify_sig			# always verify signatures by default
+#set pgp_verify_sig			# always verify signatures by default
 
 # This is the index format for non-list folders.
 set index_format="%4C %Z %{%b %d %H:%M:%S} %-20.20L [%5c] %s"
@@ -48,5 +53,5 @@ set pager_format="%Z %C/%m %d (%F) %s (%c/%l) %|-"
 set status_format="_%r_ %h: %f, %l/%m (%P,%s) [ %?p?PP:%p ?%?t?Tag:%t ?%?d?DEL:%d ?]%?V?, %L/%M only=%V? < %?F?go:%F ?%?n?new:%n ?> %v"
 
 # Default Colors
-color status          black             green
+#color status          black         blue
 

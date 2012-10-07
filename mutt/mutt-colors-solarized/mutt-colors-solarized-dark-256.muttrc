@@ -31,8 +31,8 @@ color message       color37         color234
 color markers       color160        color254        
 color attachment    color254        color234        
 color search        color61         color234        
-#color status        J_black         J_status        
-color status        color241        color235        
+#color status        black           black
+color status        color241        color156 #color235        
 color indicator     color234        color136        
 color tree          color136        color234                                    # arrow in threads
 
