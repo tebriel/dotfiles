@@ -84,6 +84,7 @@ source ~/.mutt/message-hooks		  # Define message hooks.
 source ~/.mutt/bindings			  # Define key bindings.
 source ~/.mutt/macros			  # Define macros.
 #source ~/.mutt/colours			  # Define colours.
+source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc # Solarized Scheme
 source ~/.mutt/sidebar			  # Define sidebar support (requires sidebar patch)
 #source ~/.mutt/gpg                        # GPG File
 source ~/.mutt/smime                      # smime file
