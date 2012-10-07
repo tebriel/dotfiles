@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/tebriel/.offlineimap'
+let g:netrw_dirhist_2='/Users/tebriel/Documents/GitHub/maildir_growl'
+let g:netrw_dirhist_3='/Users/tebriel/.twitscreen'
+let g:netrw_dirhist_4='/Users/tebriel/Documents/GitHub/dotfiles/.git/branches'
+let g:netrw_dirhist_5='/Users/tebriel/Documents/GitHub/dotfiles/.git/info'
+let g:netrw_dirhist_6='/Users/tebriel/Documents/GitHub/dotfiles/.git/hooks'
