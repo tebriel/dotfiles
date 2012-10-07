@@ -71,7 +71,7 @@ set write_inc=100                         # Write counter ticks every 100 msgs.
 set noconfirmappend                       # Just append, don't hassle me.
 set pager_stop                            # Don't skip msgs on next page.
                                           # Where to find the mailcap.
-set mailcap_path="~/.mutt/mailcap"
+set mailcap_path="~/.mailcap"
                                           # What we consider to be a quote.
 set quote_regexp="^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 set to_chars=" +TCF "                     # Drop the "L".
@@ -89,6 +89,7 @@ source ~/.mutt/sidebar			  # Define sidebar support (requires sidebar patch)
 #source ~/.mutt/gpg                        # GPG File
 source ~/.mutt/smime                      # smime file
 source ~/.mutt/defaults                   # Default Sig
+source ~/.mutt/auto_view                  # Auto-View Config
 ##source ~/.mutt/non-standard		  # Support for mutt patches.
 
 # HTML is the last option.

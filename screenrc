@@ -1,0 +1,13 @@
+#kill startup message
+startup_message off
+
+defscrollback 1024
+hardstatus on
+hardstatus alwayslastline
+backtick 1 5 5 cat $HOME/.twitscreen/NEW
+
+term screen-256color
+
+#hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}% w %=%{..G} %H %{..Y} %m/%d %C%a "
+hardstatus string '%{= kg}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}]%{=b B}%1`%{=b C}[ %d %M %c ]%{W}'
+
