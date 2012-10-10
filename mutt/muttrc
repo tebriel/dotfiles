@@ -48,8 +48,8 @@ set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
 set nomark_old                            # Don't mark unread new msgs as old.
 set mbox="chris-moultrie.org/INBOX"       # Default mailbox.
 # these are handled by our fcc-hook
-#set copy                                  # Keep copies of outgoing mail...
-#set record="=Archives/sentmail-`date +%Y-%m`"  # ... and it gets saved in =Archives/sentmail-[year]-[month].
+set copy=yes                                  # Keep copies of outgoing mail...
+set record="+chris-moultrie.org/Sent Items" # Archives/sentmail-`date +%Y-%m`"  # ... and it gets saved in =Archives/sentmail-[year]-[month].
 set nobeep                                # We don't need no beeping software.
 set nosmart_wrap                          # Don't want smart wrapping.
 set nomarkers                             # Don't want any wrap markers.
@@ -58,7 +58,6 @@ set pager_context=3                       # Display 3 lines of context in pager.
 set nostrict_threads                      # Lets have some fuzzy threading.
 set sendmail_wait=0                       # wait around for sendmail. (-1 was previous value)
 set sendmail="/usr/local/bin/msmtp -a moultrie" # The path to sendmail
-unset record
 set fcc_clear                             # Keep fcc's clear of signatues and encryption.
 set nopipe_decode                         # Don't decode messages when piping.
 set text_flowed				  # label messages as format-flowed
@@ -84,7 +83,7 @@ source ~/.mutt/message-hooks		  # Define message hooks.
 source ~/.mutt/bindings			  # Define key bindings.
 source ~/.mutt/macros			  # Define macros.
 #source ~/.mutt/colours			  # Define colours.
-source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc # Solarized Scheme
+#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc # Solarized Scheme
 source ~/.mutt/sidebar			  # Define sidebar support (requires sidebar patch)
 #source ~/.mutt/gpg                        # GPG File
 source ~/.mutt/smime                      # smime file
