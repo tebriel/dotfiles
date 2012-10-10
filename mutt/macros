@@ -10,7 +10,7 @@ macro index "\Cx\Cs" "<pipe-message>cat > ~/"                             # Save
 macro index "\'"     "<clear-flag>r"                                      # Mark as un-replied
 macro index "y"      "<sync-mailbox><change-folder>?<toggle-mailboxes>"   # "-y" screen
 macro index "\Cb"    "<pipe-message>urlview<enter>"                       # URL viewer.
-macro index "\ea"    "<change-folder>=archives/<tab><tab>"                # List archives
+macro index "\ea"    "<save-message>=chris-moultrie.org/Archive<enter><sync-mailbox><enter>" # Save to Archive
 macro index "\eb"    "<pipe-message>lbdb-fetchaddr<enter>"                # Store address details in lbdb.
 macro index "\eh"    "<pipe-message>mailhops<enter>"                      # View the path of the mail.
 macro index "\ef"    "<pipe-message>view-x-face<enter>"                   # View the X-Face (if there is one).
