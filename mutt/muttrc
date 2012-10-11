@@ -59,7 +59,7 @@ set nostrict_threads                      # Lets have some fuzzy threading.
 set sendmail_wait=0                       # wait around for sendmail. (-1 was previous value)
 set sendmail="/usr/local/bin/msmtp -a moultrie" # The path to sendmail
 set fcc_clear                             # Keep fcc's clear of signatues and encryption.
-set nopipe_decode                         # Don't decode messages when piping.
+set pipe_decode=yes                         # Don't decode messages when piping--Now set them for urlview!
 set text_flowed				  # label messages as format-flowed
                                           # Print via a2ps
 #set print_command="a2ps -1gEmail --borders=no --strip=3" 
