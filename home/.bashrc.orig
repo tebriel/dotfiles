@@ -1,4 +1,12 @@
 alias ssr="ssh -l root"
+<<<<<<< HEAD
+export PS1="->\u@\h:\w \$ "
+export PATH="/Users/tebriel/Documents/GitHub/mutt-notmuch-py":$PATH:"/usr/local/bin"
+export TMPDIR=$HOME/tmp
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+=======
 alias jas="jasmine-node --color --coffee spec/"
 alias gct="git add . && git commit"
 
@@ -8,9 +16,7 @@ export TMPDIR=$HOME/tmp
 export WORKON_HOME=~/Envs
 export EDITOR='vim -f'
 
-if [ -e /usr/local/bin/virtualenvwrapper.sh ]; then
-    source /usr/local/bin/virtualenvwrapper.sh
-fi
+source /usr/local/bin/virtualenvwrapper.sh
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
@@ -18,3 +24,4 @@ fi
 
 set -o vi
 
+>>>>>>> 0e12edda589a5cd89f6f401976128f8490368d57
