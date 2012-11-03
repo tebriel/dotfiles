@@ -20,6 +20,8 @@ application/pdf; /Users/tebriel/.mutt/view_attachment.sh %s pdf
 # -- always use lynx; it's dumb to use safari for this
 #text/html; elinks -force-html %s
 text/html; lynx -dump %s; copiousoutput; nametemplate=%s.html
+#text/html;                      links %s; nametemplate=%s.html
+#text/html;                      links -dump %s; nametemplate=%s.html; copiousoutput
 
 # Unidentified.
 application/octet-stream; /Users/tebriel/.mutt/view_attachment.sh %s "-" 

@@ -1,5 +1,7 @@
 alias ssr="ssh -l root"
 export PS1="->\u@\h:\w \$ "
-export PATH="/Users/tebriel/Documents/GitHub/mutt-notmuch-py/":$PATH
+export PATH="/Users/tebriel/Documents/GitHub/mutt-notmuch-py":$PATH:"/usr/local/bin"
 export TMPDIR=$HOME/tmp
-source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
