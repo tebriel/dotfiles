@@ -7,14 +7,17 @@
 # this is meant for an OS X system
 
 # Images
-image/jpeg; /Users/tebriel/.mutt/view_attachment.sh %s "-"
-image/pjpeg; /Users/tebriel/.mutt/view_attachment.sh %s "-"
-#image/png; cat %s >> ~/tmp.txt
-image/png; /Users/tebriel/.mutt/view_attachment.sh %s "-"
-image/gif; /Users/tebriel/.mutt/view_attachment.sh %s "-"
+image/jpeg; /Users/cmoultrie/.mutt/view_attachment.sh %s "-"
+image/jpg; /Users/cmoultrie/.mutt/view_attachment.sh %s "-"
+image/pjpeg; /Users/cmoultrie/.mutt/view_attachment.sh %s "-"
+image/png; /Users/cmoultrie/.mutt/view_attachment.sh %s "-"
+image/gif; /Users/cmoultrie/.mutt/view_attachment.sh %s "-"
 
 # PDF
-application/pdf; /Users/tebriel/.mutt/view_attachment.sh %s pdf
+application/pdf; /Users/cmoultrie/.mutt/view_attachment.sh %s pdf
+
+# iCal
+text/calendar; open /Applications/Calendar.app %s
 
 # HTML
 # -- always use lynx; it's dumb to use safari for this
@@ -22,4 +25,4 @@ application/pdf; /Users/tebriel/.mutt/view_attachment.sh %s pdf
 text/html; lynx -dump %s; copiousoutput; nametemplate=%s.html
 
 # Unidentified.
-application/octet-stream; /Users/tebriel/.mutt/view_attachment.sh %s "-" 
+application/octet-stream; /Users/cmoultrie/.mutt/view_attachment.sh %s "-" 
