@@ -39,7 +39,7 @@ set fast_reply				  # skip initial prompts when replying
 #set nohelp				  # don't show the help line at the top
                                           # Use vim
 #set editor="/Users/vdanen/bin/mate_mutt"
-set editor="vim +13 -c 'set tw=72 ft=mail noautoindent spell'"
+set editor="vim +10 -c 'set tw=72 ft=mail noautoindent spell'"
 set nomark_old                            # Don't mark unread new msgs as old.
 # these are handled by our fcc-hook
 set copy=yes                                  # Keep copies of outgoing mail...
