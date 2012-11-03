@@ -1,3 +1,5 @@
+# vim: set filetype=muttrc
+
 # -*- muttrc -*-
 #
 # rc file for mutt
@@ -6,6 +8,7 @@
 
 
 set mail_check=1                          # Set the interval for checking for new mail
+
 set use_envelope_from=yes
 set realname="Chris Moultrie"		  # our real name
 set hidden_host                           # Hide host details.
