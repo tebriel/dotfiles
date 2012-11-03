@@ -37,7 +37,6 @@ set fast_reply				  # skip initial prompts when replying
                                           # Use vim
 #set editor="/Users/vdanen/bin/mate_mutt"
 set editor="vim +13 -c 'set tw=72 ft=mail noautoindent spell'"
-set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
 set nomark_old                            # Don't mark unread new msgs as old.
 # these are handled by our fcc-hook
 set copy=yes                                  # Keep copies of outgoing mail...
