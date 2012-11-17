@@ -3,7 +3,7 @@ alias jas="jasmine-node --color --coffee spec/"
 alias gct="git add . && git commit"
 
 export PS1='->\u@\h:\w \$ '
-export PATH='/usr/local/bin:/Users/cmoultrie/Git/mutt-notmuch-py':$PATH
+export PATH=$HOME'/bin:'$HOME'/.cabal/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin'
 export TMPDIR=$HOME/tmp
 export WORKON_HOME=~/Envs
 export EDITOR='vim -f'
