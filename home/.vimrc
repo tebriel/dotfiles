@@ -23,6 +23,7 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/syntastic'
 Bundle 'Shougo/neosnippet'
 Bundle 'Shougo/neocomplcache'
+Bundle 'dhazel/conque-term'
 
 "Fix bundle stuff
 filetype plugin indent on
@@ -75,6 +76,7 @@ set laststatus=2 "Give us a persistent status line
 set shiftround " fancy tabbing so that we don't have irregular tabs
 set encoding=utf-8 " For unicode glyphs
 set pastetoggle=<F2> "Press to go into paste mode to avoid crazy tabbing
+set clipboard=unnamed "Lets us use the macos clipboard from within vim
 " -----------------------------------------------------------------------------
 
 " Give me fancy status line!
