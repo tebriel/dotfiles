@@ -208,4 +208,18 @@ set undofile
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 
+" Wildmenu Settings
+set wildmenu " cmd line completion a-la zsh
+set wildmode=list:longest " matches mimic that of bash or zsh
+set wildignore+=node_modules                     " node_modules dir
+set wildignore+=.ropeproject                     " py rope cache dir
+set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store                       " OSX bullshit
+set wildignore+=migrations                       " Django migrations
+set wildignore+=*.pyc                            " Python byte code
 "colorscheme zenburn

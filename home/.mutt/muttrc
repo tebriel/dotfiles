@@ -83,6 +83,8 @@ source ~/.mutt-defaults                   # Default Sig
 source ~/.mutt/auto_view                  # Auto-View Config
 ##source ~/.mutt/non-standard		  # Support for mutt patches.
 
+set signature="~/.signature" #default signature
+
 # HTML is the last option.
 #alternative_order text/enriched text/plain text/html 
 

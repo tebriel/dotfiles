@@ -1,6 +1,9 @@
 alias ssr="ssh -l root"
 alias jas="jasmine-node --color --coffee spec/"
 alias gct="git add . && git commit"
+alias gco="git checkout"
+alias gpo="git push origin"
+alias j="jira -s \"assignee = cmoultrie and status in (Open, Reopened, 'In Progress')\""
 
 export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 export PATH=$HOME'/bin:'$HOME'/.cabal/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin'
@@ -21,3 +24,4 @@ source /usr/local/etc/bash_completion.d/git-prompt.sh
 
 set -o vi
 
+ulimit -n 1200
