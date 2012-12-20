@@ -12,6 +12,7 @@ image/jpg; /Users/cmoultrie/.mutt/view_attachment.sh %s "-"
 image/pjpeg; /Users/cmoultrie/.mutt/view_attachment.sh %s "-"
 image/png; /Users/cmoultrie/.mutt/view_attachment.sh %s "-"
 image/gif; /Users/cmoultrie/.mutt/view_attachment.sh %s "-"
+image/tiff; /Users/cmoultrie/.mutt/view_attachment.sh %s "-"
 
 # PDF
 application/pdf; /Users/cmoultrie/.mutt/view_attachment.sh %s pdf
