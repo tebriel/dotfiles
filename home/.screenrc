@@ -16,6 +16,4 @@ screen -t ElG 0
 screen -t ElGVim 1 
 chdir $HOME
 screen -t bash 2
-screen -t mutt 3 mutt
-screen -t irssi 4 irssi
 

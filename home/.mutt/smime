@@ -27,11 +27,11 @@ set smime_is_default
 
 # Uncommen to make mutt ask what key to use when trying to decrypt a message.
 # It will use the default key above (if that was set) else.
-# unset smime_decrypt_use_default_key
+unset smime_decrypt_use_default_key
 
 # Path to a file or directory with trusted certificates
-#set smime_ca_location="~/.smime/ca-bundle.crt"
-set smime_ca_location=`for f in $HOME/.smime/ca-certificates.crt $HOME/.smime/ca-bundle.crt /etc/ssl/certs/ca-certificates.crt ; do if [ -e $f ] ; then echo $f ; exit ; fi ; done`
+set smime_ca_location="$HOME/.smime/ca-bundle.crt"
+#set smime_ca_location=`for f in $HOME/.smime/ca-certificates.crt $HOME/.smime/ca-bundle.crt /etc/ssl/certs/ca-certificates.crt ; do if [ -e $f ] ; then echo $f ; exit ; fi ; done`
 
 # Path to where all known certificates go. (must exist!)
 set smime_certificates="~/.smime/certificates"
@@ -75,6 +75,7 @@ set smime_sign_command="openssl smime -sign -signer %c -inkey %k -passin stdin -
 
 # Decrypt a message. Output is a MIME entity.
 set smime_decrypt_command="openssl smime -decrypt  -passin stdin -inform DER -in %f -inkey %k -recip %c"
+#set smime_decrypt_command="cat %f %k %c > $HOME/tmp.txt"
 
 # Verify a signature of type multipart/signed
 set smime_verify_command="openssl smime -verify -inform DER -in %s %C -content %f"

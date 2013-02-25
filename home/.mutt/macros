@@ -29,8 +29,8 @@ macro pager "\e5"    "<enter-command>set pager_index_lines=5<enter>"      # Chan
 macro pager "\e6"    "<enter-command>set pager_index_lines=6<enter>"      # Change PIL size
 macro pager "\e7"    "<enter-command>set pager_index_lines=7<enter>"      # Change PIL size
 macro pager "\e8"    "<enter-command>set pager_index_lines=8<enter>"      # Change PIL size
-macro pager "\e9"    "<enter-command>set pager_index_lines=9<enter>"      # Change PIL size
-macro pager "\e0"    "<enter-command>set pager_index_lines=0<enter>"      # Change PIL size
+#macro pager "\e9"    "<enter-command>set pager_index_lines=9<enter>"      # Change PIL size
+#macro pager "\e0"    "<enter-command>set pager_index_lines=0<enter>"      # Change PIL size
 macro pager "\Cb"    "<pipe-message>urlview<enter>"                       # URL viewer.
 macro pager "\Cx\Cb" "<change-folder>?"                                   # Folder list.
 macro pager "\Cx\Cs" "<pipe-message>cat > ~/"                             # Save message
@@ -57,5 +57,3 @@ macro pager	"G"	"<pipe-message>sa-learn --ham >/dev/null </dev/null &<enter><sav
 macro index	"G"	"<pipe-message>sa-learn --ham >/dev/null </dev/null &<enter><save-message>=Inbox<enter>"
 
 macro browser	"q"	"<exit><quit>"						# allow us to quit in the browser
-macro index     "!"     "<shell-escape>offlineimap<enter>"    #Check for new mail
-macro pager     "!"     "<shell-escape>offlineimap<enter>"    #Check for new mail

@@ -4,7 +4,7 @@ alias gct="git add . && git commit"
 alias gco="git checkout"
 alias gpo="git push origin"
 alias j="jira -s \"assignee = cmoultrie and status in (Open, Reopened, 'In Progress')\""
-
+alias moultrie="mutt -F ~/.moultrie-muttrc"
 export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 export PATH=$HOME'/bin:'$HOME'/.cabal/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin'
 export TMPDIR=$HOME/tmp

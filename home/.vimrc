@@ -24,6 +24,8 @@ Bundle 'scrooloose/syntastic'
 Bundle 'Shougo/neosnippet'
 Bundle 'Shougo/neocomplcache'
 Bundle 'dhazel/conque-term'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
 
 "Fix bundle stuff
 filetype plugin indent on
@@ -99,7 +101,8 @@ map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 noremap <leader><space> :noh<cr>:call clearmatches()<cr>
 " Quick buffer switching - like cmd-tab'ing
 nnoremap <leader><leader> <c-^>
-nnoremap <Leader>! :source ~/.vimrc<cr>
+nnoremap <leader>! :source ~/.vimrc<cr>
+nnoremap <leader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
 "semi-colon is now colon
 nnoremap ; : 
 let mapleader = "," " Changes leader to , instead of default: \
@@ -187,6 +190,10 @@ let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
+" This is so that gist will paste to buffer
+let g:gist_clip_command = 'pbcopy'
+let g:github_api_url = 'http://git.endgames.local/api/v3'
 
 " For snippet_complete marker.
 if has('conceal')

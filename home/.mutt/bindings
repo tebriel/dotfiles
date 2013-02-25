@@ -90,7 +90,7 @@ bind index	p		recall-message
 bind index	z		resend-message
 bind index	r		reply
 bind index	s		save-message
-macro index     S               "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
+macro index     S               "<enter-command>unset wait_key<enter><shell-escape>notmuch new && mutt-notmuch ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
 bind index	/		search
 bind index	n		search-next
 bind index	N		search-opposite

@@ -14,3 +14,4 @@ message-hook "~h \"X-Mailer: (Microsoft Outlook IMO|Experian ContactMail)\"" "se
 # IncrediMail, whatever the hell that is, sends out its text alternative as
 # DOS formatted text. Clean things up.
 message-hook "~h \"X-Mailer: IncrediMail" "set display_filter='tr -d \\\\r'"
+
