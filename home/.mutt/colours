@@ -35,10 +35,12 @@ color index		cyan		default	~N
 color index		red		default	~F
 color index		green		default	~T
 color index		brightwhite	default	~D
-mono  index		bold			~N
-mono  index		bold			~F
-mono  index		bold			~T
-mono  index		bold			~D
+#mono  index		bold			~N
+#mono  index		bold			~F
+#mono  index		bold			~T
+color index		red                     ~T
+color default           red                     ~T
+#mono  index		bold			~D
 
 # Highlights inside the body of a message.
 
@@ -60,7 +62,7 @@ color body		yellow		default	"(^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)"     
 color body		yellow		default	"(^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)"     # /Italic/ text.
 
 # Colour definitions when on a mono screen
-mono bold		bold
+#mono bold		bold
 mono underline		underline
 mono indicator		reverse
 mono header		bold		"^(From|Subject|X-Junked-Because|X-Virus-hagbard):"

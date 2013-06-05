@@ -5,18 +5,21 @@ defscrollback 1024
 hardstatus on
 hardstatus alwayslastline
 
+shell "/bin/bash"
+
 term screen-256color
 
 hardstatus string '%{= kg}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}]%{=b B}%1`%{=b C}[ %d %M %c ]%{W}'
 
-screen -t REDIS 0 bash -c 'redis-server /usr/local/etc/redis.conf'
+screen -t REDIS 0 bash -i -c 'redis-server /usr/local/etc/redis.conf; bash'
 chdir $HOME/Git/velocity
-screen -t Django 1 bash -c '. bin/activate && ./manage.py runserver 9000'
+screen -t Django 1 bash -i -c '. bin/activate && ./manage.py runserver 9000; bash'
 chdir $HOME/Git/velocity/java/velocity-core
-screen -t Velocity 2 bash -c 'mvn exec:java -Dexec.mainClass="us.egs.velocity.util.MiniVelocity" -Dexec.classpathScope=test -Dexec.args="conf/mini-velocity.properties ../../data/sanitized.json.gz"'
+screen -t Velocity 2 bash -i -c 'mvn exec:java -Dexec.mainClass="us.egs.velocity.util.MiniVelocity" -Dexec.classpathScope=test -Dexec.args="conf/mini-velocity.properties ../../data/sanitized.json.gz"; bash'
 chdir $HOME/Downloads/edgescape
-screen -t Edgescape 3 bash -c './sbin/runFacilitator.sh'
+screen -t Edgescape 3 bash -i -c './sbin/runFacilitator.sh; bash'
 # Use the line below if you are using the submodule
 # chdir $HOME/Git/velocity/node
 chdir $HOME/Git/velocity/deliverator
-screen -t Deliverator 4 bash -c 'npm start'
+# Sleep for 5 seconds to let everyone get online
+screen -t Deliverator 4 bash -i -c 'sleep 5 && npm start; bash'

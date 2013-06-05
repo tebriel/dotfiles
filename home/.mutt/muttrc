@@ -39,7 +39,7 @@ set fast_reply				  # skip initial prompts when replying
 #set nohelp				  # don't show the help line at the top
                                           # Use vim
 #set editor="/Users/vdanen/bin/mate_mutt"
-set editor="mvim -f +10 -c 'set tw=72 ft=mail noautoindent spell'"
+set editor="vim -f +10 -c 'set tw=72 ft=mail noautoindent spell'"
 set nomark_old                            # Don't mark unread new msgs as old.
 # these are handled by our fcc-hook
 set copy=yes                                  # Keep copies of outgoing mail...
@@ -75,7 +75,10 @@ source ~/.mutt/bindings			  # Define key bindings.
 source ~/.mutt/macros			  # Define macros.
 #source ~/.mutt/colours			  # Define colours.
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc # Solarized Scheme
-source ~/.mutt/zenBurn.colors
+#source ~/.mutt/zenBurn.colors
+#source ~/.mutt/solarized.colors
+#source ~/.mutt/solarized-light.colors
+source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
 source ~/.mutt/sidebar			  # Define sidebar support (requires sidebar patch)
 #source ~/.mutt/gpg                        # GPG File
 source ~/.mutt/smime                      # smime file
@@ -87,6 +90,9 @@ set signature="~/.signature" #default signature
 
 # HTML is the last option.
 #alternative_order text/enriched text/plain text/html 
+
+# Color tagged items so we can freaking find them
+color index     yellow      default     ~T
 
 # Last, but not least, get mutt to display its version on startup.
 push <show-version>
