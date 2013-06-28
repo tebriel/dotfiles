@@ -80,6 +80,9 @@ set shiftround " fancy tabbing so that we don't have irregular tabs
 set encoding=utf-8 " For unicode glyphs
 set pastetoggle=<F2> "Press to go into paste mode to avoid crazy tabbing
 set clipboard=unnamed "Lets us use the macos clipboard from within vim
+" Whitespace alerts
+match ErrorMsg '\s\+$'
+nnoremap <Leader>rtw :%s/\s\+$//e<CR>
 " -----------------------------------------------------------------------------
 
 " Give me fancy status line!
@@ -97,16 +100,17 @@ au VimResized * :wincmd =
 " -----------------------------------------------------------------------------
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
-map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 " Clear match highlighting
-noremap <leader><space> :noh<cr>:call clearmatches()<cr>
+nnoremap <leader><space> :noh<cr>:call clearmatches()<cr>
 " Quick buffer switching - like cmd-tab'ing
 nnoremap <leader><leader> <c-^>
 nnoremap <leader>! :source ~/.vimrc<cr>
 nnoremap <leader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
 "semi-colon is now colon
 nnoremap ; : 
-let mapleader = "," " Changes leader to , instead of default: \
+" Changes leader to , instead of default: \
+let mapleader = ","
 " -----------------------------------------------------------------------------
 
 " vim-powerline settings
@@ -132,7 +136,7 @@ xmap <leader>c <Plug>Commentary
 " -----------------------------------------------------------------------------
 let g:ctrlp_map = '<c-t>'
 let g:ctrlp_max_height = 30
-let g:ctrlp_custom_ignore = { 'dir': 'static/partials$\|static/js$\|static/img$\|static/css$' }
+let g:ctrlp_custom_ignore = { 'dir': 'assets/*' } " |static/js$\|static/img$\|static/css$' }
 " -----------------------------------------------------------------------------
 
 set noswf
