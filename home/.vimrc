@@ -82,7 +82,6 @@ set pastetoggle=<F2> "Press to go into paste mode to avoid crazy tabbing
 set clipboard=unnamed "Lets us use the macos clipboard from within vim
 " Whitespace alerts
 match ErrorMsg '\s\+$'
-nnoremap <Leader>rtw :%s/\s\+$//e<CR>
 " -----------------------------------------------------------------------------
 
 " Give me fancy status line!
@@ -100,6 +99,7 @@ au VimResized * :wincmd =
 " -----------------------------------------------------------------------------
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
+let mapleader = ","
 nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 " Clear match highlighting
 nnoremap <leader><space> :noh<cr>:call clearmatches()<cr>
@@ -108,9 +108,9 @@ nnoremap <leader><leader> <c-^>
 nnoremap <leader>! :source ~/.vimrc<cr>
 nnoremap <leader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
 "semi-colon is now colon
-nnoremap ; : 
+nnoremap ; :
+nnoremap <leader>rtw :%s/\s\+$//e<CR>
 " Changes leader to , instead of default: \
-let mapleader = ","
 " -----------------------------------------------------------------------------
 
 " vim-powerline settings
