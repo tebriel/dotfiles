@@ -76,15 +76,15 @@ source ~/.mutt/macros			  # Define macros.
 #source ~/.mutt/colours			  # Define colours.
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc # Solarized Scheme
 #source ~/.mutt/zenBurn.colors
-#source ~/.mutt/solarized.colors
-#source ~/.mutt/solarized-light.colors
-source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
-source ~/.mutt/sidebar			  # Define sidebar support (requires sidebar patch)
+source ~/.mutt/solarized.colors
+# source ~/.mutt/solarized-light.colors
+# source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
+# source ~/.mutt/sidebar			  # Define sidebar support (requires sidebar patch)
 #source ~/.mutt/gpg                        # GPG File
 source ~/.mutt/smime                      # smime file
 #source ~/.mutt-defaults                   # Default Sig
 source ~/.mutt/auto_view                  # Auto-View Config
-##source ~/.mutt/non-standard		  # Support for mutt patches.
+#source ~/.mutt/non-standard		  # Support for mutt patches.
 
 set signature="~/.signature" #default signature
 

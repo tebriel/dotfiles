@@ -28,5 +28,5 @@ text/html; lynx -dump %s; copiousoutput; nametemplate=%s.html
 #text/html;                      links -dump %s; nametemplate=%s.html; copiousoutput
 
 # Unidentified.
-application/octet-stream; /Users/cmoultrie/.mutt/view_attachment.sh %s "-" 
+application/octet-stream; /Users/cmoultrie/.mutt/view_attachment.sh %s "-"
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; /Users/cmoultrie/.mutt/view_attachment.sh %s "-"
