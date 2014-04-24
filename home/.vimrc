@@ -35,6 +35,9 @@ Bundle 'godlygeek/tabular'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'dart-lang/dart-vim-plugin'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'rking/ag.vim'
+Bundle 'klen/python-mode'
+Bundle 'davidhalter/jedi-vim'
 
 "Fix bundle stuff
 filetype plugin indent on
@@ -111,6 +114,8 @@ au VimResized * :wincmd =
 " Normal mode: <Leader>e
 " Changes leader to , instead of default: \
 let mapleader = ","
+" Never have I wanted that stupid window
+map q: :q
 nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 " Clear match highlighting
 nnoremap <leader><space> :noh<cr>:call clearmatches()<cr>
@@ -195,3 +200,7 @@ set wildignore+=__init__.py                      " __init folder never has usefu
 " nathanaelkane/vim-indent-guides Settings
 " -----------------------------------------------------------------------------
 let g:indent_guides_guide_size = 1
+
+
+" jedi-python
+let g:jedi#use_splits_not_buffers = "left"
