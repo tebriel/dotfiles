@@ -7,11 +7,11 @@ set shell=/bin/bash
 " VUNDLE
 " -----------------------------------------------------------------------------
 filetype off
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 "Bundle 'username/reponame'
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-commentary'
@@ -19,7 +19,6 @@ Bundle 'tpope/vim-markdown'
 Bundle 'groenewege/vim-less'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/syntastic'
 Bundle 'Shougo/neosnippet'
 Bundle 'Valloric/YouCompleteMe'
@@ -38,6 +37,8 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'rking/ag.vim'
 Bundle 'klen/python-mode'
 Bundle 'davidhalter/jedi-vim'
+
+call vundle#end() " required
 
 "Fix bundle stuff
 filetype plugin indent on
@@ -132,7 +133,10 @@ vnoremap K <nop>
 cnoremap sudow w !sudo tee % >/dev/null
 " vim-powerline settings
 " -----------------------------------------------------------------------------
-let g:Powerline_symbols = 'fancy'
+" let g:Powerline_symbols = 'fancy'
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 " -----------------------------------------------------------------------------
 
 " ZenCoding Settings
