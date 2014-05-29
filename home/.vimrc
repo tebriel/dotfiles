@@ -208,3 +208,7 @@ let g:indent_guides_guide_size = 1
 
 " jedi-python
 let g:jedi#use_splits_not_buffers = "left"
+let g:jedi#popup_on_dot = 0
+
+" pymode
+let g:pymode_rope_complete_on_dot = 0
