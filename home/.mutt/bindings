@@ -46,7 +46,7 @@ bind generic	H		top-page
 bind index	b		bounce-message
 bind index	g		change-folder
 bind index	C		copy-message
-bind index	a		create-alias
+#bind index	a		create-alias
 bind index	d		delete-message
 bind index	D		delete-pattern
 bind index	%		display-address
@@ -120,7 +120,7 @@ bind pager	<end>		bottom
 bind pager	b		bounce-message
 bind pager	g		change-folder
 bind pager	C		copy-message
-bind pager	a		create-alias
+#bind pager	a		create-alias
 bind pager	d		delete-message
 bind pager	%		display-address
 bind pager	h		display-toggle-weed
