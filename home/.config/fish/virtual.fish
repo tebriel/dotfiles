@@ -149,6 +149,23 @@ function __vf_new --description "Create a new virtualenv"
 	end
 end
 
+function __vf_new3 --description "Create a new virtualenv with Python 3"
+    emit virtualenv_will_create
+	set envname $argv[-1]
+	set -e argv[-1]
+	virtualenv-3.4 $argv $VIRTUALFISH_HOME/$envname
+	set vestatus $status
+	if begin; [ $vestatus -eq 0 ]; and [ -d $VIRTUALFISH_HOME/$envname ]; end
+		vf activate $envname
+        emit virtualenv_did_create
+        emit virtualenv_did_create:(basename $VIRTUAL_ENV)
+	else
+		echo "Error: The virtualenv wasn't created properly."
+		echo "virtualenv returned status $vestatus."
+		return 1
+	end
+end
+
 function __vf_rm --description "Delete a virtualenv"
 	if not [ (count $argv) -eq 1 ]
 		echo "You need to specify exactly one virtualenv."

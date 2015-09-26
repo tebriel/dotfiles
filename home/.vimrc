@@ -37,6 +37,11 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'rking/ag.vim'
 Bundle 'klen/python-mode'
 Bundle 'davidhalter/jedi-vim'
+Bundle 'bling/vim-airline'
+Bundle 'tebriel/logstash.vim'
+Bundle 'tpope/vim-rails'
+Bundle 'KurtPreston/vim-autoformat-rails'
+Bundle 'derekwyatt/vim-scala'
 
 call vundle#end() " required
 
@@ -134,9 +139,15 @@ cnoremap sudow w !sudo tee % >/dev/null
 " vim-powerline settings
 " -----------------------------------------------------------------------------
 " let g:Powerline_symbols = 'fancy'
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+" python from powerline.vim import setup as powerline_setup
+" python powerline_setup()
+" python del powerline_setup
+" -----------------------------------------------------------------------------
+
+" vim-airline settings
+" -----------------------------------------------------------------------------
+let g:airline_powerline_fonts=1
+let g:airline_section_c='%t'
 " -----------------------------------------------------------------------------
 
 " ZenCoding Settings
@@ -166,7 +177,7 @@ xmap <leader>c <Plug>Commentary
 " -----------------------------------------------------------------------------
 let g:ctrlp_map = '<c-t>'
 let g:ctrlp_max_height = 30
-let g:ctrlp_custom_ignore = { 'dir': 'assets' }
+let g:ctrlp_custom_ignore = { 'dir': 'vendor$\|tmp' }
 " -----------------------------------------------------------------------------
 
 set noswf
@@ -197,7 +208,6 @@ set wildignore+=npm_cache                        " npm_cache folder
 set wildignore+=pyes
 set wildignore+=docs
 set wildignore+=django-piston
-set wildignore+=__init__.py                      " __init folder never has useful anything in it
 " set wildignore+="main_ui/static/partials"     " stop showing me partials that aren't the ones I want
 "colorscheme zenburn
 
@@ -212,3 +222,6 @@ let g:jedi#popup_on_dot = 0
 
 " pymode
 let g:pymode_rope_complete_on_dot = 0
+
+" ruby 2 space config
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2

@@ -55,7 +55,8 @@ set pipe_decode=yes                       # Don't decode messages when piping--N
 set text_flowed                           # label messages as format-flowed
                                           # Print via a2ps
 #set print_command="a2ps -1gEmail --borders=no --strip=3"
-set print_command="enscript --font=Times-Roman10 --pretty-print"
+# set print_command="enscript --font=Times-Roman10 --pretty-print"
+set print_command="tee ~/tmp/mail.html; qlmanage -p ~/tmp/mail.html"
 set tilde                                 # Fill out messages with '~'.
 set read_inc=100                          # Read counter ticks every 100 msgs.
 set write_inc=100                         # Write counter ticks every 100 msgs.

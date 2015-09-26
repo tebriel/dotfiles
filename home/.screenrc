@@ -9,12 +9,13 @@ shell "/usr/local/bin/fish"
 
 term screen-256color
 
+backtick 101 10 10 /Users/cmoultrie/bin/mailcount.sh
+backtick 102 10 10 /Users/cmoultrie/bin/failcount.sh
+backtick 103 2 2 /Users/cmoultrie/bin/escount-print.sh
+
 #hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}% w %=%{..G} %H %{..Y} %m/%d %C%a "
-hardstatus string '%{= kg}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}]%{=b B}%1`%{=b C}[ %d %M %c ]%{W}'
+hardstatus string '%{= kg}[ %{G}%H %{g}]%103`%102`%101`[%= %{= kw}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{= g}][ %{G}%d %M %c%{= g} ]'
 
-#chdir /usr/local/elguapo/
-#screen -t ElG 0 
-#screen -t ElGVim 1 
-#chdir $HOME
-#screen -t bash 2
-
+screen -t "fish" 2
+screen -t "fish" 1
+screen -t "mutt" 0 mutt
