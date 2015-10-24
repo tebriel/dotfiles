@@ -1,6 +1,6 @@
 # ulimit -n 1024000
 set PATH '/usr/local/bin' '/usr/local/sbin' $PATH
-eval (python -m virtualfish)
+eval (python -m virtualfish auto_activation)
 
 set PATH ~/bin $PATH
 
