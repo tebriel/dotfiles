@@ -1,17 +1,17 @@
 # ulimit -n 1024000
-set PATH '/usr/local/bin' '/usr/local/sbin' $PATH
-source /Users/cmoultrie/Git/virtualfish/virtual.fish
-source /Users/cmoultrie/Git/virtualfish/auto_activation.fish
-
-set PATH ~/bin $PATH
+set -x PATH "$HOME/homebrew/bin" ~/bin "$HOME/homebrew/opt/go/libexec/bin" $PATH
+set -x GOPATH "$HOME/work"
+set -x EDITOR /Users/cmoultrie/homebrew/bin/mvim
+source $HOME/Git/cmoultrie/virtualfish/virtual.fish
+source $HOME/Git/cmoultrie/virtualfish/auto_activation.fish
 
 # RBENV Stuffs
-set RBENV_ROOT /usr/local/var/rbenv
+# set -gx RBENV_ROOT $HOME/homebrew/var/rbenv
+set PATH $HOME/.rbenv/bin $PATH
+set PATH $HOME/.rbenv/shims $PATH
+rbenv rehash >/dev/null ^&1
 # rbenv
-# set PATH $HOME/.rbenv/bin $PATH
-# set PATH $HOME/.rbenv/shims $PATH
-# rbenv rehash >/dev/null ^&1
-. (rbenv init -|psub)
+# . (rbenv init -|psub)
 # Re-Enable if you start using boot2docker again
 # . (boot2docker shellinit -|psub)
 
@@ -49,4 +49,29 @@ function workremote -d "Set up the necessary remote tunnels"
     sudo networksetup -setsocksfirewallproxystate Wi-Fi off
     sudo gsed -i '/127.0.0.1       hipchat.pdrop.net/d' /etc/hosts
     sudo gsed -i '/127.0.0.1       elk1.atl.pdrop.net/d' /etc/hosts
+end
+
+function workemail -d "Run a mutt container"
+    . ~/.gmailstuff
+    docker run -it --rm -v /etc/localtime:/etc/localtime -v $HOME/tmp:/tmp -e GMAIL -e GMAIL_NAME -e GMAIL_PASS -e GMAIL_FROM cmoultrie/mutt
+end
+
+function dirssi -d "Run an IRSSI container"
+    docker run -it --rm \
+    -v /etc/localtime:/etc/localtime \
+    -v $HOME/.irssi:/home/user/.irssi \
+    --link bitlbee \
+    --name irssi \
+    jess/irssi
+end
+
+function dvim -d "Run vim in a docker"
+    switch (count $argv)
+    case 0
+        set workdir (pwd)
+    case 1
+        set workdir $argv[1]
+    end
+
+    docker run -it --rm -v $workdir:/home/user/workdir -v ~/.ssh:/home/user/.ssh cmoultrie/vim
 end
