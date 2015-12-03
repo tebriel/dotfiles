@@ -1,4 +1,5 @@
 " ~/.vimrc Thanks to pthrash
+execute pathogen#infect()
 
 " Get rid of old vi nastiness
 set nocompatible

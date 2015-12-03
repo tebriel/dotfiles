@@ -18,4 +18,4 @@ hardstatus string '%{= kg}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{=b kR}(%{W}%n*%f %t
 
 screen -t "fish" 2
 screen -t "fish" 1
-screen -t "mutt" 0
+screen -t "fish" 0

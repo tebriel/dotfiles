@@ -4,3 +4,5 @@ home/bundle/
 fish_history
 fish_read_history
 fishd.*
+.netrwhist
+hub
