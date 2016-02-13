@@ -5,4 +5,8 @@ fish_history
 fish_read_history
 fishd.*
 .netrwhist
+<<<<<<< HEAD
 autoload
+=======
+hub
+>>>>>>> f12781619bb9703ebfa321b195b1638a6f78c400

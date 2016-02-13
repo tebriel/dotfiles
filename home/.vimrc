@@ -21,28 +21,20 @@ Bundle 'groenewege/vim-less'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/syntastic'
-Bundle 'Shougo/neosnippet'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'dhazel/conque-term'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
-Bundle 'wavded/vim-stylus'
 Bundle 'ciaranm/securemodelines'
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 Bundle 'dag/vim-fish'
 Bundle 'godlygeek/tabular'
 Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'dart-lang/dart-vim-plugin'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'rking/ag.vim'
 Bundle 'klen/python-mode'
-Bundle 'davidhalter/jedi-vim'
 Bundle 'bling/vim-airline'
 Bundle 'tebriel/logstash.vim'
 Bundle 'tpope/vim-rails'
 Bundle 'KurtPreston/vim-autoformat-rails'
-Bundle 'derekwyatt/vim-scala'
 Bundle 'fatih/vim-go'
 
 call vundle#end() " required
@@ -89,10 +81,12 @@ augroup END
 set backspace=indent,eol,start "Backspace goes back over indents, \n, and start?
 set expandtab "Tab button becomes spaces
 set shiftwidth=4 "Tabs are always 4 spaces
+set ts=4
 set softtabstop=4
 set tabstop=4
 set et "Expand tabs
-set tw=79 "Line width is now 79 chars
+set tw=99 "Line width is now 99 chars
+autocmd FileType python set colorcolumn=99
 set relativenumber "Relative Line Numbers
 set autoindent "Pseudo-smart, uses parent indent level
 set laststatus=2 "Give us a persistent status line
@@ -225,6 +219,8 @@ let g:jedi#popup_on_dot = 0
 
 " pymode
 let g:pymode_rope_complete_on_dot = 0
+let g:pymode_lint_config = '$HOME/pylint.rc'
+let g:pymode_options_max_line_length = 99
 
 " ruby 2 space config
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2

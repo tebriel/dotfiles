@@ -12,3 +12,8 @@ function dvim -d "Run vim in a docker"
 
     docker run -it --rm -v $workdir:/home/user/workdir -v ~/.ssh:/home/user/.ssh cmoultrie/vim
 end
+
+function workemail -d "Run a mutt container"
+    . ~/.gmailstuff
+    docker run -it --rm -v /etc/localtime:/etc/localtime -v $HOME/tmp:/tmp -e GMAIL -e GMAIL_NAME -e GMAIL_PASS -e GMAIL_FROM cmoultrie/mutt
+end
