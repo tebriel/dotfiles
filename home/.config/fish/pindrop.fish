@@ -31,4 +31,8 @@ function brew_env -d "Set up Pindrop Brew ENV"
     set -gx PATH "$HOME/homebrew/bin" $PATH
 end
 
+function docker_env -d "Set the docker environment up"
+    eval (docker-machine env dev)
+end
+
 rbenv_env

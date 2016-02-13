@@ -4,6 +4,8 @@ function load_config -d "Load in config files"
     switch (hostname)
     case ATLMBP089.ad.pdrop.net
         . ~/.config/fish/pindrop.fish
+    case Pipin.attlocal.net
+        . ~/.config/fish/personal.fish
     end
 end
 
@@ -31,6 +33,7 @@ function main_config -d "Set up all fish config"
     shell_env
     virtualfish_env
     go_env
+    docker_env
 end
 
 main_config
