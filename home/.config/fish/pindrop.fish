@@ -28,7 +28,7 @@ function rbenv_env -d "Set up rbenv variables"
 end
 
 function brew_env -d "Set up Pindrop Brew ENV"
-    set -x PATH "$HOME/homebrew/bin" $PATH
+    set -gx PATH "$HOME/homebrew/bin" $PATH
 end
 
 rbenv_env
