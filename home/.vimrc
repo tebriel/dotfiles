@@ -43,6 +43,7 @@ Bundle 'tebriel/logstash.vim'
 Bundle 'tpope/vim-rails'
 Bundle 'KurtPreston/vim-autoformat-rails'
 Bundle 'derekwyatt/vim-scala'
+Bundle 'fatih/vim-go'
 
 call vundle#end() " required
 
@@ -89,6 +90,7 @@ set backspace=indent,eol,start "Backspace goes back over indents, \n, and start?
 set expandtab "Tab button becomes spaces
 set shiftwidth=4 "Tabs are always 4 spaces
 set softtabstop=4
+set tabstop=4
 set et "Expand tabs
 set tw=79 "Line width is now 79 chars
 set relativenumber "Relative Line Numbers
