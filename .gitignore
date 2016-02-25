@@ -5,4 +5,5 @@ fish_history
 fish_read_history
 fishd.*
 .netrwhist
+autoload
 hub

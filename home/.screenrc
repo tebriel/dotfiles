@@ -5,7 +5,7 @@ defscrollback 1024
 hardstatus on
 hardstatus alwayslastline
 
-shell "/Users/cmoultrie/homebrew/bin/fish"
+shell "fish"
 
 term screen-256color
 

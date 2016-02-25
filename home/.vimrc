@@ -83,6 +83,7 @@ set expandtab "Tab button becomes spaces
 set shiftwidth=4 "Tabs are always 4 spaces
 set ts=4
 set softtabstop=4
+set tabstop=4
 set et "Expand tabs
 set tw=99 "Line width is now 99 chars
 autocmd FileType python set colorcolumn=99
