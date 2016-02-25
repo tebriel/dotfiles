@@ -13,8 +13,7 @@ function brew_env -d "Set up brew PATH"
     set PATH '/usr/local/bin' '/usr/local/sbin' $PATH
 end
 
-function shell_env -d "Set up general shell env"
-    set -gx EDITOR vim
+function docker_env -d "Set the docker env"
 end
 
 function virtualfish_env -d "Set up virtualfish"

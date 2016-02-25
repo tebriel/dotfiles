@@ -1,5 +1,10 @@
-function dirssi -d "Run an irssi docker"
-    docker run --rm -it -v $HOME/.irssi:/home/user/.irssi --name irssi jess/irssi irssi -n tebriel
+function dirssi -d "Run an IRSSI container"
+    docker run -it --rm \
+    -v /etc/localtime:/etc/localtime \
+    -v $HOME/.irssi:/home/user/.irssi \
+    --name irssi \
+   cmoultrie/irssi \
+   -n tebriel
 end
 
 function dvim -d "Run vim in a docker"
