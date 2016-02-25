@@ -11,21 +11,11 @@ function getlog -d "Get the latest log file"
     gzip $archdir/$logfile
 end
 
-# Override the regular one to link bitlbee
-function dirssi -d "Run an IRSSI container"
-    docker run -it --rm \
-    -v /etc/localtime:/etc/localtime \
-    -v $HOME/.irssi:/home/user/.irssi \
-    --link bitlbee \
-    --name irssi \
-    jess/irssi
-end
-
-function rbenv_env -d "Set up rbenv variables"
-    set PATH $HOME/.rbenv/bin $PATH
-    set PATH $HOME/.rbenv/shims $PATH
-    rbenv rehash >/dev/null ^&1
-end
+# function rbenv_env -d "Set up rbenv variables"
+#     set PATH $HOME/.rbenv/bin $PATH
+#     set PATH $HOME/.rbenv/shims $PATH
+#     rbenv rehash >/dev/null ^&1
+# end
 
 function brew_env -d "Set up Pindrop Brew ENV"
     set -gx PATH "$HOME/homebrew/bin" $PATH
@@ -63,6 +53,6 @@ function workremote -d "Set up the necessary remote tunnels"
     sshuttle --dns -vr airavat 0/0 --dns
 end
 
-function extra_funcs -d "Extra configuration functions"
-    rbenv_env
-end
+# function extra_funcs -d "Extra configuration functions"
+#     rbenv_env
+# end
