@@ -9,6 +9,10 @@ function load_config -d "Load in config files"
     end
 end
 
+function shell_env -d "Set up general shell env"
+    set -gx EDITOR vim
+end
+
 function brew_env -d "Set up brew PATH"
     set PATH '/usr/local/bin' '/usr/local/sbin' $PATH
 end
