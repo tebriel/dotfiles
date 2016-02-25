@@ -34,6 +34,10 @@ end
 
 function docker_env -d "Set the docker environment up"
     eval (docker-machine env dev)
+    set -gx DOCKER_TLS_VERIFY $DOCKER_TLS_VERIFY;
+    set -gx DOCKER_HOST $DOCKER_HOST;
+    set -gx DOCKER_CERT_PATH $DOCKER_CERT_PATH;
+    set -gx DOCKER_MACHINE_NAME $DOCKER_MACHINE_NAME;
 end
 
 function go_env -d "Set go environment variables"
@@ -59,4 +63,6 @@ function workremote -d "Set up the necessary remote tunnels"
     sshuttle --dns -vr airavat 0/0 --dns
 end
 
-rbenv_env
+function extra_funcs -d "Extra configuration functions"
+    rbenv_env
+end
