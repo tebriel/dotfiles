@@ -7,3 +7,4 @@ fishd.*
 .netrwhist
 autoload
 hub
+home/.vim/view
