@@ -1,5 +1,4 @@
 " ~/.vimrc Thanks to pthrash
-execute pathogen#infect()
 
 " Get rid of old vi nastiness
 set nocompatible
@@ -32,10 +31,11 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'rking/ag.vim'
 Bundle 'klen/python-mode'
 Bundle 'bling/vim-airline'
-Bundle 'tebriel/logstash.vim'
+Bundle 'robbles/logstash.vim'
 Bundle 'tpope/vim-rails'
 Bundle 'KurtPreston/vim-autoformat-rails'
 Bundle 'fatih/vim-go'
+Bundle 'ingydotnet/yaml-vim'
 
 call vundle#end() " required
 
@@ -224,3 +224,5 @@ let g:pymode_options_max_line_length = 99
 
 " ruby 2 space config
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+" yaml 2 space config
+autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
