@@ -206,7 +206,7 @@ set wildignore+=pyes
 set wildignore+=docs
 set wildignore+=django-piston
 " set wildignore+="main_ui/static/partials"     " stop showing me partials that aren't the ones I want
-"colorscheme zenburn
+colorscheme zenburn
 
 " nathanaelkane/vim-indent-guides Settings
 " -----------------------------------------------------------------------------
