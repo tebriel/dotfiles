@@ -53,6 +53,10 @@ function workremote -d "Set up the necessary remote tunnels"
     sshuttle --dns -vr airavat 0/0 --dns
 end
 
+function docker_api -d "Hit up the narsil docker api for things"
+    curl -k -H "Authorization: Basic "(jq -r '.["auths"]["narsil.ad.pdrop.net:5000"]["auth"]' ~/.docker/config.json) https://narsil.ad.pdrop.net:5000/v2/"$argv[1]" -s | python -mjson.tool
+end
+
 # function extra_funcs -d "Extra configuration functions"
 #     rbenv_env
 # end

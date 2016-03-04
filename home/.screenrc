@@ -16,6 +16,7 @@ term screen-256color
 #hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}% w %=%{..G} %H %{..Y} %m/%d %C%a "
 hardstatus string '%{= kg}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{= g}][ %{G}%d %M %c%{= g} ]'
 
-screen -t "fish" 2
-screen -t "fish" 1
-screen -t "fish" 0
+# read and write screen clipboard to X clipboard.
+# bind > eval writebuf 'exec sh -c "/usr/bin/pbcopy > screen/screen-exchange"'
+# bind < eval writebuf 'exec sh -c "/usr/bin/pbcopy < screen/screen-exchange"'
+# bindkey -m \015 eval 'stuff \015' 'writebuf' 'exec sh -c "/usr/bin/pbcopy < /tmp/screen-exchange"'
