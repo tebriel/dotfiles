@@ -33,6 +33,11 @@ end
 function extra_funcs -d "Extra configuration functions"
 end
 
+function iterm3_env -d "Install iTerm 3 Shell Integration"
+    # iTerm 3 Shell Integration
+    test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+end
+
 function main_config -d "Set up all fish config"
     load_config
     brew_env
@@ -41,6 +46,7 @@ function main_config -d "Set up all fish config"
     go_env
     docker_env
     extra_funcs
+    # iterm3_env
 end
 
 main_config

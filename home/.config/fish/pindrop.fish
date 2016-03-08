@@ -11,11 +11,11 @@ function getlog -d "Get the latest log file"
     gzip $archdir/$logfile
 end
 
-# function rbenv_env -d "Set up rbenv variables"
-#     set PATH $HOME/.rbenv/bin $PATH
-#     set PATH $HOME/.rbenv/shims $PATH
-#     rbenv rehash >/dev/null ^&1
-# end
+function rbenv_env -d "Set up rbenv variables"
+    set PATH $HOME/.rbenv/bin $PATH
+    set PATH $HOME/.rbenv/shims $PATH
+    rbenv rehash >/dev/null ^&1
+end
 
 function brew_env -d "Set up Pindrop Brew ENV"
     set -gx PATH "$HOME/homebrew/bin" $PATH
@@ -57,6 +57,6 @@ function docker_api -d "Hit up the narsil docker api for things"
     curl -k -H "Authorization: Basic "(jq -r '.["auths"]["narsil.ad.pdrop.net:5000"]["auth"]' ~/.docker/config.json) https://narsil.ad.pdrop.net:5000/v2/"$argv[1]" -s | python -mjson.tool
 end
 
-# function extra_funcs -d "Extra configuration functions"
-#     rbenv_env
-# end
+function extra_funcs -d "Extra configuration functions"
+    rbenv_env
+end
