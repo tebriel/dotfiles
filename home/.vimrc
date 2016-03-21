@@ -13,7 +13,7 @@ call vundle#begin()
 "Bundle 'username/reponame'
 Plugin 'gmarik/Vundle.vim'
 
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-markdown'
 Bundle 'groenewege/vim-less'
@@ -226,3 +226,6 @@ let g:pymode_options_max_line_length = 99
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 " yaml 2 space config
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
+
+" golang syntastic checking
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
