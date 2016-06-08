@@ -23,11 +23,11 @@ function brew_env -d "Set up Pindrop Brew ENV"
 end
 
 function docker_env -d "Set the docker environment up"
-    eval (docker-machine env dev)
-    set -gx DOCKER_TLS_VERIFY $DOCKER_TLS_VERIFY;
-    set -gx DOCKER_HOST $DOCKER_HOST;
-    set -gx DOCKER_CERT_PATH $DOCKER_CERT_PATH;
-    set -gx DOCKER_MACHINE_NAME $DOCKER_MACHINE_NAME;
+    # eval (docker-machine env dev)
+    # set -gx DOCKER_TLS_VERIFY $DOCKER_TLS_VERIFY;
+    # set -gx DOCKER_HOST $DOCKER_HOST;
+    # set -gx DOCKER_CERT_PATH $DOCKER_CERT_PATH;
+    # set -gx DOCKER_MACHINE_NAME $DOCKER_MACHINE_NAME;
 end
 
 function go_env -d "Set go environment variables"

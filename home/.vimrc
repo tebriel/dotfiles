@@ -129,6 +129,7 @@ nnoremap <leader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
 "semi-colon is now colon
 nnoremap ; :
 nnoremap <leader>rtw :%s/\s\+$//e<CR>
+nnoremap <leader>ftnl :%s/#012/\r/ge<CR>
 nnoremap <leader>w :wall<CR>
 nnoremap K <nop>
 vnoremap K <nop>
@@ -206,7 +207,7 @@ set wildignore+=pyes
 set wildignore+=docs
 set wildignore+=django-piston
 " set wildignore+="main_ui/static/partials"     " stop showing me partials that aren't the ones I want
-colorscheme zenburn
+colorscheme solarized
 
 " nathanaelkane/vim-indent-guides Settings
 " -----------------------------------------------------------------------------
@@ -226,6 +227,12 @@ let g:pymode_options_max_line_length = 99
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 " yaml 2 space config
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
+" yaml 2 space config
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 " golang syntastic checking
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_yaml_checkers = ['yamllint']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1

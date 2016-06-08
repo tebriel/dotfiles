@@ -4,6 +4,8 @@ function load_config -d "Load in config files"
     switch (hostname)
     case atlmbp089.ad.pdrop.net
         . ~/.config/fish/pindrop.fish
+    case ATLMBP089.local
+        . ~/.config/fish/pindrop.fish
     case Pipin.attlocal.net
         . ~/.config/fish/personal.fish
     end
