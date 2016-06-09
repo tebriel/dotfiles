@@ -20,6 +20,8 @@ hardstatus string '%{= kg}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{=b kR}(%{W}%n*%f %t
 # bind > eval writebuf 'exec sh -c "/usr/bin/pbcopy > screen/screen-exchange"'
 # bind < eval writebuf 'exec sh -c "/usr/bin/pbcopy < screen/screen-exchange"'
 # bindkey -m \015 eval 'stuff \015' 'writebuf' 'exec sh -c "/usr/bin/pbcopy < /tmp/screen-exchange"'
+# ctrl-a O will attempt to open whatever is in the paste buffer
+bind O eval writebuf 'exec fish -c "cat /tmp/screen-exchange | xargs open {}"'
 
 # vim focus bindings
 bind j focus down
