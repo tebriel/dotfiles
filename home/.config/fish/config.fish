@@ -6,6 +6,8 @@ function load_config -d "Load in config files"
         . ~/.config/fish/pindrop.fish
     case ATLMBP089.local
         . ~/.config/fish/pindrop.fish
+    case ATLMBP089.attlocal.net
+        . ~/.config/fish/pindrop.fish
     case Pipin.attlocal.net
         . ~/.config/fish/personal.fish
     end
@@ -40,6 +42,11 @@ function iterm3_env -d "Install iTerm 3 Shell Integration"
     test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 end
 
+function github_token -d "Set github token"
+    source ~/.github_token
+end
+
+
 function main_config -d "Set up all fish config"
     load_config
     brew_env
@@ -48,6 +55,7 @@ function main_config -d "Set up all fish config"
     go_env
     docker_env
     extra_funcs
+    github_token
     # iterm3_env
 end
 

@@ -33,7 +33,7 @@ end
 function go_env -d "Set go environment variables"
     # Set up go environment
     set -gx GOPATH $HOME/work
-    set PATH ~/bin $GOPATH/bin $PATH
+    set PATH /usr/local/go/bin ~/bin $GOPATH/bin $PATH
 end
 
 function getlog -d "Get the latest log file"

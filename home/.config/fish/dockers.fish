@@ -8,12 +8,12 @@ end
 
 function weechat -d "Run the weechat container"
     docker run -it --rm \
+        --name weechat \
         --hostname weechat \
         -e TERM=screen-256color \
         -e LANG=en_US.UTF-8 \
         -v $HOME/.weechat:/weechat \
-        --entrypoint=/bin/bash \
-        -e HOME=/home/cmoultrie \
+        -e HOME \
         -u 1008753614:1718279092 \
         -e TZ=EDT5EST \
         -e WEECHAT_HOME=/weechat \
@@ -59,6 +59,7 @@ function workemail -d "Run a mutt container"
         -e GMAIL_NAME \
         -e GMAIL_PASS \
         -e GMAIL_FROM \
+        --name workemail \
         cmoultrie/mutt
 end
 
@@ -67,5 +68,9 @@ function whalesay -d "Run some whalesay"
 end
 
 function rainbowstream -d "Run rainbowstream"
-    docker run -v /Users/cmoultrie/.rainbowstream:/root/ --rm -it jess/rainbowstream
+    docker run \
+        --rm -it \
+        -v /Users/cmoultrie/.rainbowstream:/root/ \
+        --name rainbostream \
+        jess/rainbowstream
 end

@@ -20,20 +20,18 @@ Bundle 'groenewege/vim-less'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/syntastic'
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
+Bundle 'Shougo/neocomplete.vim'
 Bundle 'ciaranm/securemodelines'
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 Bundle 'dag/vim-fish'
 Bundle 'godlygeek/tabular'
 Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'rking/ag.vim'
 Bundle 'klen/python-mode'
 Bundle 'bling/vim-airline'
 Bundle 'robbles/logstash.vim'
-Bundle 'tpope/vim-rails'
-Bundle 'KurtPreston/vim-autoformat-rails'
 Bundle 'fatih/vim-go'
 Bundle 'ingydotnet/yaml-vim'
 
@@ -231,8 +229,32 @@ autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 " golang syntastic checking
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_go_checkers = ['go', 'govet', 'golint', 'errcheck']
+" Helps fix the speed issues in vim
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+" Sometimes go stuff doesn't appear in the small buffer
+let g:go_list_type = "quickfix"
+" Yaml checker for vim/syntastic
 let g:syntastic_yaml_checkers = ['yamllint']
+" Syntastic settings
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
+
+" neocomplete enable
+let g:neocomplete#enable_at_startup = 1
+" Tab Completion
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" vim-go
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
