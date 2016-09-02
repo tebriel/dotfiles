@@ -34,6 +34,7 @@ Bundle 'bling/vim-airline'
 Bundle 'robbles/logstash.vim'
 Bundle 'fatih/vim-go'
 Bundle 'ingydotnet/yaml-vim'
+Bundle 'NLKNguyen/papercolor-theme'
 
 call vundle#end() " required
 
@@ -169,13 +170,6 @@ nmap <leader>c <Plug>CommentaryLine
 xmap <leader>c <Plug>Commentary
 " -----------------------------------------------------------------------------
 
-" ctrlp.vim
-" -----------------------------------------------------------------------------
-let g:ctrlp_map = '<c-t>'
-let g:ctrlp_max_height = 30
-let g:ctrlp_custom_ignore = { 'dir': 'vendor$\|tmp' }
-" -----------------------------------------------------------------------------
-
 set noswf
 
 set undodir=$TMPDIR/undodir
@@ -205,7 +199,12 @@ set wildignore+=pyes
 set wildignore+=docs
 set wildignore+=django-piston
 " set wildignore+="main_ui/static/partials"     " stop showing me partials that aren't the ones I want
-colorscheme solarized
+" colorscheme solarized
+
+" papercolor-theme
+set t_Co=256 " Required, possibly
+set background=light
+colorscheme PaperColor
 
 " nathanaelkane/vim-indent-guides Settings
 " -----------------------------------------------------------------------------
@@ -231,7 +230,7 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 " golang syntastic checking
 let g:syntastic_go_checkers = ['go', 'govet', 'golint', 'errcheck']
 " Helps fix the speed issues in vim
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 " Sometimes go stuff doesn't appear in the small buffer
 let g:go_list_type = "quickfix"
 " Yaml checker for vim/syntastic
@@ -258,3 +257,11 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+"
+" ctrlp.vim
+" -----------------------------------------------------------------------------
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_max_height = 30
+let g:ctrlp_custom_ignore = { 'dir': 'vendor$\|tmp' }
+" -----------------------------------------------------------------------------

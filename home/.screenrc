@@ -23,31 +23,31 @@ hardstatus string '%{= kg}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{=b kR}(%{W}%n*%f %t
 # ctrl-a O will attempt to open whatever is in the paste buffer
 bind O eval writebuf 'exec fish -c "cat /tmp/screen-exchange | xargs open"'
 
-# vim focus bindings
-bind j focus down
-bind k focus up
-bind h focus left
-bind l focus right
-bind t focus top
-bind b focus bottom
-# vim focus bindings with ctrl too
-bind C-j focus down
-bind C-k focus up
-bind C-h focus left
-bind C-l focus right
-bind C-t focus top
-bind C-b focus bottom
+# # vim focus bindings
+# bind j focus down
+# bind k focus up
+# bind h focus left
+# bind l focus right
+# bind t focus top
+# bind b focus bottom
+# # vim focus bindings with ctrl too
+# bind C-j focus down
+# bind C-k focus up
+# bind C-h focus left
+# bind C-l focus right
+# bind C-t focus top
+# bind C-b focus bottom
 
-# Replace the old c-a k binding with c-a K to handle the above keybindings
-bind K kill
+# # Replace the old c-a k binding with c-a K to handle the above keybindings
+# bind K kill
 
-# Build out the quad layout
-split
-split -v
-focus
-focus
-split -v
-focus
-resize -h -30
-focus
-# Shrink that bottom right one
+# # Build out the quad layout
+# split
+# split -v
+# focus
+# focus
+# split -v
+# focus
+# resize -h -30
+# focus
+# # Shrink that bottom right one
