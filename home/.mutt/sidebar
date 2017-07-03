@@ -4,7 +4,7 @@
 #
 # $Id: sidebar 16 2007-03-09 19:52:41Z vdanen $
 
-set sidebar_width=26
+set sidebar_width=30
 set sidebar_visible=yes
 set sidebar_delim='|'
 
@@ -12,7 +12,7 @@ set sidebar_delim='|'
 #mailboxes =Inbox =Inbox-annvix
 
 # color of folders with new mail
-color sidebar_new yellow default
+color sidebar_new yellow color237
 
 # alt-n, alt-p to select next/prev folder
 # alt-o to open selected folder (doesn't seem to work??)

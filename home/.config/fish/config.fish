@@ -21,11 +21,17 @@ function brew_env -d "Set up brew PATH"
     set PATH '/usr/local/bin' '/usr/local/sbin' $PATH
 end
 
+function blackbox_env -d "Set up blackbox PATH"
+    set -gx GPG (which gpg2)
+    set PATH "$HOME/work/src/github.com/StackExchange/blackbox/bin" $PATH
+end
+
 function docker_env -d "Set the docker env"
 end
 
 function virtualfish_env -d "Set up virtualfish"
-    eval (python -m virtualfish auto_activation)
+    set -gx PROJECT_HOME ~/work/src/github.atl.pdrop.net/IVR/ivr-auth/
+    eval (python -m virtualfish auto_activation global_requirements compat_aliases projects)
 end
 
 function go_env -d "Set go environment variables"
@@ -46,6 +52,16 @@ function github_token -d "Set github token"
     source ~/.github_token
 end
 
+function keychain_stuff -d "Sets up keychain stuff"
+    if status --is-interactive
+        set -l IFS
+        eval (keychain --eval --quiet -Q id_rsa)
+    end
+end
+
+function mall -d "Run the normal 'all' set of things"
+    make rm_containers build test service_test
+end
 
 function main_config -d "Set up all fish config"
     load_config
@@ -56,6 +72,8 @@ function main_config -d "Set up all fish config"
     docker_env
     extra_funcs
     github_token
+    blackbox_env
+    keychain_stuff
     # iterm3_env
 end
 

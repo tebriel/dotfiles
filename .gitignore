@@ -8,3 +8,5 @@ fishd.*
 autoload
 hub
 home/.vim/view
+.ropeproject
+*.cert

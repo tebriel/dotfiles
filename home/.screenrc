@@ -1,7 +1,7 @@
 #kill startup message
 startup_message off
 
-defscrollback 1024
+defscrollback 1048576
 hardstatus on
 hardstatus alwayslastline
 

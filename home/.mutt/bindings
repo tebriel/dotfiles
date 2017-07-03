@@ -1,3 +1,4 @@
+# vim: set filetype=muttrc
 # -*- muttrc -*-
 #
 # Keyboard bindings for mutt.
@@ -36,7 +37,8 @@ bind generic	\cR		search-reverse
 bind generic	<space>		select-entry
 bind generic	\r		select-entry
 bind generic	\n		select-entry
-bind generic	!		shell-escape
+# bind generic	!		shell-escape
+macro generic !		"<shell-escape>~/.virtualenvs/mutt/bin/offlineimap<enter>"
 bind generic	t		tag-entry
 bind generic	+		tag-prefix
 bind generic	=		tag-prefix
@@ -90,7 +92,7 @@ bind index	p		recall-message
 bind index	z		resend-message
 bind index	r		reply
 bind index	s		save-message
-macro index     S               "<enter-command>unset wait_key<enter><shell-escape>notmuch new && mutt-notmuch ~/tmp/search<enter><change-folder-readonly>~/tmp/search<enter>" "search mail (using notmuch)"
+macro index     S               "<enter-command>unset wait_key<enter><shell-escape>~/.mutt/mutt-notmuch.py /var/mail/cmoultrie/search_results<enter><change-folder-readonly>/var/mail/cmoultrie/search_results<enter>" "search mail (using notmuch)"
 bind index	/		search
 bind index	n		search-next
 bind index	N		search-opposite
@@ -114,6 +116,7 @@ bind index	W		clear-flag
 bind index	w		set-flag
 
 # bind pager
+macro pager	!		"<shell-escape>~/.virtualenvs/mutt/bin/offlineimap<enter>"
 bind pager	G		bottom
 bind pager	\cE		bottom
 bind pager	<end>		bottom
@@ -166,7 +169,6 @@ bind pager	n		search-next
 bind pager	N		search-opposite
 bind pager	\cR		search-reverse
 bind pager	'\'		search-toggle
-bind pager	!		shell-escape
 bind pager	'<'		skip-quoted
 bind pager	t		tag-message
 bind pager	'>'		toggle-quoted

@@ -52,7 +52,7 @@ function workemail -d "Run a mutt container"
     . ~/.gmailstuff
     docker run -it --rm \
         -v /etc/localtime:/etc/localtime \
-        -v $HOME/tmp:/tmp \
+        -v $HOME/mutttmp:/tmp \
         -v $HOME/.gnupg:/home/user/.gnupg \
         -e GPG_ID \
         -e GMAIL \
@@ -67,10 +67,11 @@ function whalesay -d "Run some whalesay"
     docker run -it --rm  docker/whalesay cowsay $argv[1]
 end
 
-function rainbowstream -d "Run rainbowstream"
-    docker run \
-        --rm -it \
-        -v /Users/cmoultrie/.rainbowstream:/root/ \
-        --name rainbostream \
-        jess/rainbowstream
-end
+# function rstream -d "Run rainbowstream"
+#     rainbowstream
+#     # docker run \
+#     #     --rm -it \
+#     #     -v /Users/cmoultrie/.rainbowstream:/root/ \
+#     #     --name rainbostream \
+#     #     jess/rainbowstream
+# end

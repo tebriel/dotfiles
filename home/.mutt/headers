@@ -1,3 +1,4 @@
+# vim: set filetype=muttrc
 # -*- muttrc -*-
 #
 # Configure header displays.
@@ -19,9 +20,15 @@ unignore Newsgroups:
 unignore CC:
 unignore BCC:
 unignore Message-ID:
-unignore X-Mailer:
 unignore User-Agent:
 unignore X-Spam-Status::
+unignore Content-Type:
+unignore X-
+
+set edit_headers                          # I want to edit the message headers.
 
 # Now order the visable header lines
-hdr_order Date: From: To: CC: BCC: Reply-To: Mail-Followup-To: Subject: Organization: User-Agent: X-Mailer:
+hdr_order Date: From: To: CC: BCC: Reply-To: Mail-Followup-To: Subject: Organization: User-Agent:
+
+my_hdr X-Hipster: mutt
+my_hdr X-Notify-Me: tell me if you read my headers

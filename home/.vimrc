@@ -13,28 +13,35 @@ call vundle#begin()
 "Bundle 'username/reponame'
 Plugin 'gmarik/Vundle.vim'
 
+" General Utility
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-markdown'
-Bundle 'groenewege/vim-less'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/syntastic'
-" Bundle 'Valloric/YouCompleteMe'
-Bundle 'Shougo/neocomplete.vim'
 Bundle 'ciaranm/securemodelines'
-Bundle 'rizzatti/funcoo.vim'
-Bundle 'rizzatti/dash.vim'
-Bundle 'dag/vim-fish'
-Bundle 'godlygeek/tabular'
-Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'rking/ag.vim'
-Bundle 'klen/python-mode'
+Bundle 'farseer90718/vim-taskwarrior'
+
+" Visual Stuff
 Bundle 'bling/vim-airline'
-Bundle 'robbles/logstash.vim'
-Bundle 'fatih/vim-go'
-Bundle 'ingydotnet/yaml-vim'
 Bundle 'NLKNguyen/papercolor-theme'
+
+" Language Tools
+Bundle 'klen/python-mode'
+Bundle 'fatih/vim-go'
+Bundle 'scrooloose/syntastic'
+Bundle 'Shougo/neocomplete.vim'
+Bundle 'Shougo/vimproc.vim'
+
+" Language Syntax
+Bundle 'dag/vim-fish'
+Bundle 'robbles/logstash.vim'
+Bundle 'lepture/vim-jinja'
+Bundle 'ingydotnet/yaml-vim'
+Bundle 'vim-scripts/groovy.vim'
+Bundle 'chikamichi/mediawiki.vim'
+Bundle 'tpope/vim-markdown'
+Bundle 'groenewege/vim-less'
 
 call vundle#end() " required
 
@@ -42,38 +49,6 @@ call vundle#end() " required
 filetype plugin indent on
 syntax on
 " -----------------------------------------------------------------------------
-
-" HTML and HTMLDjango {{{
-
-augroup ft_html
-    au!
-
-    " au FileType html,jinja,htmldjango set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
-    au BufNewFile,BufRead *.html setlocal filetype=htmldjango
-
-    " Use <localleader>f to fold the current tag.
-    au FileType html,jinja,htmldjango nnoremap <buffer> <localleader>f Vatzf
-
-    " Use <localleader>t to fold the current templatetag.
-    au FileType html,jinja,htmldjango nmap <buffer> <localleader>t viikojozf
-
-    " Use Shift-Return to turn this:
-    "     <tag>|</tag>
-    "
-    " into this:
-    "     <tag>
-    "         |
-    "     </tag>
-    au FileType html,jinja,htmldjango nnoremap <buffer> <s-cr> vit<esc>a<cr><esc>vito<esc>i<cr><esc>
-
-    " Django tags
-    au FileType jinja,htmldjango inoremap <buffer> <c-t> {%<space><space>%}<left><left><left>
-
-    " Django variables
-    au FileType jinja,htmldjango inoremap <buffer> <c-f> {{<space><space>}}<left><left><left>
-augroup END
-
-" }}}
 
 " Set statements
 " -----------------------------------------------------------------------------
@@ -84,8 +59,8 @@ set ts=4
 set softtabstop=4
 set tabstop=4
 set et "Expand tabs
-set tw=99 "Line width is now 99 chars
-autocmd FileType python set colorcolumn=99
+set tw=110 "Line width is now 99 chars
+" autocmd FileType python set colorcolumn=110
 set relativenumber "Relative Line Numbers
 set autoindent "Pseudo-smart, uses parent indent level
 set laststatus=2 "Give us a persistent status line
@@ -155,14 +130,6 @@ let g:use_zen_complete_tag=1
 let g:user_zen_leader_key = '<c-e>'
 " -----------------------------------------------------------------------------
 
-" Dash Settings
-let g:dash_map = {
-  \ 'coffee':       'js',
-  \ 'less':         'css',
-  \ 'python':       'py'
-  \}
-nmap <silent> <leader>d <Plug>DashSearch
-vmap <silent> <leader>d <Plug>DashSearch
 " -----------------------------------------------------------------------------
 " vim-commentary settings
 " -----------------------------------------------------------------------------
@@ -206,29 +173,41 @@ set t_Co=256 " Required, possibly
 set background=light
 colorscheme PaperColor
 
-" nathanaelkane/vim-indent-guides Settings
 " -----------------------------------------------------------------------------
-let g:indent_guides_guide_size = 1
-
-
-" jedi-python
-let g:jedi#use_splits_not_buffers = "left"
-let g:jedi#popup_on_dot = 0
-
-" pymode
-let g:pymode_rope_complete_on_dot = 0
+" pymode settings    (python)
+" -----------------------------------------------------------------------------
+let g:pymode_rope_completion = 0 " Code Completion
+let g:pymode_rope_complete_on_dot = 0 " Do code completion on '.'
 let g:pymode_lint_config = '$HOME/pylint.rc'
-let g:pymode_options_max_line_length = 99
+let g:pymode_options_max_line_length = 110
+let g:pymode_trim_whitespaces = 1 " Auto-trim whitespace on save
+let g:pymode_options_colorcolumn = 1 " Show a colorcolumn at max line length
+let g:pymode_lint = 0 " Let's use syntastic for python checking
+let g:syntastic_loc_list_height = 5 " Shorten the quickfix height to 5
+" let g:pymode_python = 'python3' " Always use python2
+" au FileType python nmap <leader>2 let g:pymode_python=python <CR>
+" au FileType python nmap <leader>3 let g:pymode_python=python3 <CR>
+" -----------------------------------------------------------------------------
 
+" -----------------------------------------------------------------------------
+" filetype settings
+" -----------------------------------------------------------------------------
 " ruby 2 space config
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 " yaml 2 space config
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
 " yaml 2 space config
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+" -----------------------------------------------------------------------------
 
+" -----------------------------------------------------------------------------
+" syntastic settings
+" -----------------------------------------------------------------------------
 " golang syntastic checking
 let g:syntastic_go_checkers = ['go', 'govet', 'golint', 'errcheck']
+let g:syntastic_sh_checkers = ['shellcheck']
+let g:syntastic_python_checkers = ['python', 'flake8']
+let g:syntastic_python_flake8_args = "--config $HOME/.flake8"
 " Helps fix the speed issues in vim
 " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 " Sometimes go stuff doesn't appear in the small buffer
@@ -239,13 +218,39 @@ let g:syntastic_yaml_checkers = ['yamllint']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+" -----------------------------------------------------------------------------
 
-" neocomplete enable
-let g:neocomplete#enable_at_startup = 1
-" Tab Completion
+" -----------------------------------------------------------------------------
+" neocomplete settings
+" -----------------------------------------------------------------------------
+let g:neocomplete#enable_at_startup = 1 " startup
+let g:neocomplete#enable_smart_case = 1 " smart case which i assume is case-insensitive, mostly
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" -----------------------------------------------------------------------------
+
+" Tab Completion
+
+" -----------------------------------------------------------------------------
 " vim-go
+" -----------------------------------------------------------------------------
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
@@ -258,7 +263,7 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-"
+" -----------------------------------------------------------------------------
 " ctrlp.vim
 " -----------------------------------------------------------------------------
 let g:ctrlp_map = '<c-p>'

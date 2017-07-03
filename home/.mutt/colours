@@ -38,8 +38,8 @@ color index		brightwhite	default	~D
 #mono  index		bold			~N
 #mono  index		bold			~F
 #mono  index		bold			~T
-color index		red                     ~T
-color default           red                     ~T
+color index		red         default ~T
+# color default   red         default ~T
 #mono  index		bold			~D
 
 # Highlights inside the body of a message.
@@ -65,4 +65,4 @@ color body		yellow		default	"(^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)"     
 #mono bold		bold
 mono underline		underline
 mono indicator		reverse
-mono header		bold		"^(From|Subject|X-Junked-Because|X-Virus-hagbard):"
+mono header		    bold		"^(From|Subject|X-Junked-Because|X-Virus-hagbard):"

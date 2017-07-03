@@ -3,7 +3,7 @@ function fish_prompt --description 'Write out the prompt'
 
 	# Just calculate this once, to save a few cycles when displaying the prompt
 	if not set -q __fish_prompt_hostname
-		set -g __fish_prompt_hostname Sauron
+		set -g __fish_prompt_hostname Shire
 	end
 
 	set -l normal (set_color normal)
