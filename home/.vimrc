@@ -27,11 +27,12 @@ Bundle 'bling/vim-airline'
 Bundle 'NLKNguyen/papercolor-theme'
 
 " Language Tools
-Bundle 'klen/python-mode'
+" Bundle 'klen/python-mode'
 Bundle 'fatih/vim-go'
 Bundle 'scrooloose/syntastic'
 Bundle 'Shougo/neocomplete.vim'
 Bundle 'Shougo/vimproc.vim'
+Bundle 'rust-lang/rust.vim'
 
 " Language Syntax
 Bundle 'dag/vim-fish'
@@ -176,6 +177,7 @@ colorscheme PaperColor
 " -----------------------------------------------------------------------------
 " pymode settings    (python)
 " -----------------------------------------------------------------------------
+let g:pymode_rope = 0 " just disable rope, it's not worth the pain
 let g:pymode_rope_completion = 0 " Code Completion
 let g:pymode_rope_complete_on_dot = 0 " Do code completion on '.'
 let g:pymode_lint_config = '$HOME/pylint.rc'
@@ -208,6 +210,8 @@ let g:syntastic_go_checkers = ['go', 'govet', 'golint', 'errcheck']
 let g:syntastic_sh_checkers = ['shellcheck']
 let g:syntastic_python_checkers = ['python', 'flake8']
 let g:syntastic_python_flake8_args = "--config $HOME/.flake8"
+let g:syntastic_rust_checkers = ['cargo']
+let g:syntastic_sql_checkers = ['sqlint']
 " Helps fix the speed issues in vim
 " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 " Sometimes go stuff doesn't appear in the small buffer

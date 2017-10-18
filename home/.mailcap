@@ -24,7 +24,7 @@ text/calendar; open /Applications/Calendar.app %s
 
 # HTML
 # -- always use lynx; it's dumb to use safari for this
-#text/html; elinks -force-html %s
+text/html; elinks -force-html %s
 # text/html; qlmanage -p %s
 # text/html; lynx -dump %s; copiousoutput; nametemplate=%s.html
 #text/html;                      links %s; nametemplate=%s.html

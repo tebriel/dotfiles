@@ -1,3 +1,5 @@
+fundle plugin 'tuvistavie/fish-ssh-agent'
+
 function load_config -d "Load in config files"
     . ~/.config/fish/dockers.fish
     # Load computer specific things
@@ -21,6 +23,10 @@ function brew_env -d "Set up brew PATH"
     set PATH '/usr/local/bin' '/usr/local/sbin' $PATH
 end
 
+function rust_env -d "Set up brew PATH"
+    set PATH "$HOME/.cargo/bin" $PATH
+end
+
 function blackbox_env -d "Set up blackbox PATH"
     set -gx GPG (which gpg2)
     set PATH "$HOME/work/src/github.com/StackExchange/blackbox/bin" $PATH
@@ -37,7 +43,7 @@ end
 function go_env -d "Set go environment variables"
     # Set up go environment
     set -gx GOPATH $HOME/work
-    set PATH ~/bin $GOPATH/bin $PATH
+    set PATH ~/bin $GOPATH/bin /usr/local/go/bin $PATH
 end
 
 function extra_funcs -d "Extra configuration functions"
@@ -69,6 +75,7 @@ function main_config -d "Set up all fish config"
     shell_env
     virtualfish_env
     go_env
+    rust_env
     docker_env
     extra_funcs
     github_token

@@ -103,7 +103,7 @@ source ~/.mutt/auto_view                  # Auto-View Config
 set signature="~/.signature" #default signature
 
 # HTML is the last option.
-#alternative_order text/enriched text/plain text/html 
+alternative_order text/enriched text/plain text/html
 
 # Last, but not least, get mutt to display its version on startup.
 push <show-version>
