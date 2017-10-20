@@ -32,17 +32,19 @@ Bundle 'fatih/vim-go'
 Bundle 'scrooloose/syntastic'
 Bundle 'Shougo/neocomplete.vim'
 Bundle 'Shougo/vimproc.vim'
-Bundle 'rust-lang/rust.vim'
 
 " Language Syntax
 Bundle 'dag/vim-fish'
 Bundle 'robbles/logstash.vim'
-Bundle 'lepture/vim-jinja'
 Bundle 'ingydotnet/yaml-vim'
 Bundle 'vim-scripts/groovy.vim'
 Bundle 'chikamichi/mediawiki.vim'
 Bundle 'tpope/vim-markdown'
 Bundle 'groenewege/vim-less'
+Bundle 'Konfekt/FastFold'
+Bundle 'lepture/vim-jinja'
+Bundle 'leafgarland/typescript-vim'
+Bundle 'rust-lang/rust.vim'
 
 call vundle#end() " required
 
@@ -200,6 +202,7 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
 " yaml 2 space config
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
 " -----------------------------------------------------------------------------
 
 " -----------------------------------------------------------------------------
@@ -212,6 +215,7 @@ let g:syntastic_python_checkers = ['python', 'flake8']
 let g:syntastic_python_flake8_args = "--config $HOME/.flake8"
 let g:syntastic_rust_checkers = ['cargo']
 let g:syntastic_sql_checkers = ['sqlint']
+let g:syntastic_typescript_checkers = ['tslint --type-check']
 " Helps fix the speed issues in vim
 " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 " Sometimes go stuff doesn't appear in the small buffer
