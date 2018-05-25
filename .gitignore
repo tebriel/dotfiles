@@ -10,3 +10,4 @@ hub
 home/.vim/view
 .ropeproject
 *.cert
+home/.config/fish/functions

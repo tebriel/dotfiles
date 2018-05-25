@@ -92,7 +92,7 @@ bind index	p		recall-message
 bind index	z		resend-message
 bind index	r		reply
 bind index	s		save-message
-macro index     S               "<enter-command>unset wait_key<enter><shell-escape>~/.mutt/mutt-notmuch.py /var/mail/cmoultrie/search_results<enter><change-folder-readonly>/var/mail/cmoultrie/search_results<enter>" "search mail (using notmuch)"
+macro index     S               "<enter-command>unset wait_key<enter><shell-escape>~/.mutt/mutt-notmuch.py /home/cmoultrie/mail/cmoultrie/search_results<enter><change-folder-readonly>/home/cmoultrie/mail/cmoultrie/search_results<enter>" "search mail (using notmuch)"
 bind index	/		search
 bind index	n		search-next
 bind index	N		search-opposite

@@ -11,6 +11,11 @@ function getlog -d "Get the latest log file"
     gzip $archdir/$logfile
 end
 
+function get_aws_ip -d "Get the ip address for an AWS instance by ID"
+    aws ec2 describe-instances --instance-ids=$argv[1] | jq '.Reservations[0].Instances[0].NetworkInterfaces[0].PrivateIpAddresses[0].PrivateIpAddress' \
+        | sed 's|"||g'
+end
+
 function rbenv_env -d "Set up rbenv variables"
     set PATH $HOME/.rbenv/bin $PATH
     set PATH $HOME/.rbenv/shims $PATH
@@ -59,4 +64,30 @@ end
 
 function extra_funcs -d "Extra configuration functions"
     rbenv_env
+end
+
+function kenv -d "Pick a kube env"
+    switch (echo $argv[1])
+    case 'dev'
+        kubectl config use-context dev
+    case 'staging'
+        kubectl config set-context staging --namespace=ivr-auth-master
+        kubectl config use-context staging
+    case 'pre-prod'
+        kubectl config set-context staging --namespace=ivr-auth-pre-prod
+        kubectl config use-context staging
+    case 'load'
+        kubectl config set-context staging --namespace=ivr-auth-load-test
+        kubectl config use-context staging
+    case 'prod'
+        kubectl config use-context prod
+    end
+end
+
+function kget -d "Get things from kube"
+    kubectl get $argv
+end
+
+function kdesc -d "Describe things in kube"
+    kubectl describe $argv
 end

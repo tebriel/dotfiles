@@ -21,6 +21,9 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'ciaranm/securemodelines'
 Bundle 'rking/ag.vim'
 Bundle 'farseer90718/vim-taskwarrior'
+" Dependency for vim-bazel
+Bundle 'google/vim-maktaba'
+Bundle 'bazelbuild/vim-bazel'
 
 " Visual Stuff
 Bundle 'bling/vim-airline'
@@ -30,8 +33,7 @@ Bundle 'NLKNguyen/papercolor-theme'
 " Bundle 'klen/python-mode'
 Bundle 'fatih/vim-go'
 Bundle 'scrooloose/syntastic'
-Bundle 'Shougo/neocomplete.vim'
-Bundle 'Shougo/vimproc.vim'
+Bundle 'valloric/YouCompleteMe'
 
 " Language Syntax
 Bundle 'dag/vim-fish'
@@ -203,6 +205,8 @@ autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
 " yaml 2 space config
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype groovy setlocal ts=2 sts=2 sw=2
 " -----------------------------------------------------------------------------
 
 " -----------------------------------------------------------------------------
@@ -210,7 +214,9 @@ autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
 " -----------------------------------------------------------------------------
 " golang syntastic checking
 let g:syntastic_go_checkers = ['go', 'govet', 'golint', 'errcheck']
+" let g:syntastic_go_govet_args = "-shadow=true" Syntastic doesn't allow govet args, see the help
 let g:syntastic_sh_checkers = ['shellcheck']
+let g:syntastic_sh_shellcheck_args = "-x"
 let g:syntastic_python_checkers = ['python', 'flake8']
 let g:syntastic_python_flake8_args = "--config $HOME/.flake8"
 let g:syntastic_rust_checkers = ['cargo']
@@ -234,24 +240,24 @@ set statusline+=%*
 " -----------------------------------------------------------------------------
 " neocomplete settings
 " -----------------------------------------------------------------------------
-let g:neocomplete#enable_at_startup = 1 " startup
-let g:neocomplete#enable_smart_case = 1 " smart case which i assume is case-insensitive, mostly
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" let g:neocomplete#enable_at_startup = 1 " startup
+" let g:neocomplete#enable_smart_case = 1 " smart case which i assume is case-insensitive, mostly
+" " Recommended key-mappings.
+" " <CR>: close popup and save indent.
+" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+" function! s:my_cr_function()
+"   return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+"   " For no inserting <CR> key.
+"   "return pumvisible() ? "\<C-y>" : "\<CR>"
+" endfunction
+" " <TAB>: completion.
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" " <C-h>, <BS>: close popup and delete backword char.
+" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 " -----------------------------------------------------------------------------
 
 " Tab Completion
@@ -278,3 +284,5 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_max_height = 30
 let g:ctrlp_custom_ignore = { 'dir': 'vendor$\|tmp' }
 " -----------------------------------------------------------------------------
+"
+
