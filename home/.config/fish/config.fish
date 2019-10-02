@@ -1,15 +1,11 @@
 fundle plugin 'tuvistavie/fish-ssh-agent'
 
+fundle init
+
 function load_config -d "Load in config files"
     . ~/.config/fish/dockers.fish
     # Load computer specific things
     switch (hostname)
-    case atlmbp089.ad.pdrop.net
-        . ~/.config/fish/pindrop.fish
-    case ATLMBP089.local
-        . ~/.config/fish/pindrop.fish
-    case ATLMBP089.attlocal.net
-        . ~/.config/fish/pindrop.fish
     case Pipin.attlocal.net
         . ~/.config/fish/personal.fish
     end
@@ -79,19 +75,19 @@ function mall -d "Run the normal 'all' set of things"
 end
 
 function main_config -d "Set up all fish config"
-    load_config
+    # load_config
     brew_env
     shell_env
     virtualfish_env
     go_env
-    ruby_env
+    # ruby_env
     rust_env
     docker_env
     python_env
     extra_funcs
     github_token
-    blackbox_env
-    keychain_stuff
+    # blackbox_env
+    # keychain_stuff
     # iterm3_env
 end
 

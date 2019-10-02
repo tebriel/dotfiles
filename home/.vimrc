@@ -175,7 +175,7 @@ set wildignore+=django-piston
 
 " papercolor-theme
 set t_Co=256 " Required, possibly
-set background=light
+set background=dark
 colorscheme PaperColor
 
 " -----------------------------------------------------------------------------

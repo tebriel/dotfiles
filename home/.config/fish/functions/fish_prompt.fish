@@ -91,17 +91,17 @@ function fish_prompt --description 'Write out the prompt'
         echo -n -s (set_color blue) "☃ " (set_color normal)
     end
 
-    if set -q mode_str
-        set hub_status (hub ci-status 2>/dev/null)
-        switch "$hub_status"
-        case failure
-            set hub_status_str (echo -n -s (set_color red)"✗"(set_color normal))
-        case success
-            set hub_status_str (echo -n -s (set_color green)"✓"(set_color normal))
-        case pending
-            set hub_status_str (echo -n -s (set_color yellow)"♼ "(set_color normal))
-        end
-    end
+    # if set -q mode_str
+    #     set hub_status (hub ci-status 2>/dev/null)
+    #     switch "$hub_status"
+    #     case failure
+    #         set hub_status_str (echo -n -s (set_color red)"✗"(set_color normal))
+    #     case success
+    #         set hub_status_str (echo -n -s (set_color green)"✓"(set_color normal))
+    #     case pending
+    #         set hub_status_str (echo -n -s (set_color yellow)"♼ "(set_color normal))
+    #     end
+    # end
 
 	echo -n -s (set_color $fish_color_user) (set_color $fish_color_host) "$__fish_prompt_hostname" $normal ' ' (set_color $color_cwd) (prompt_pwd) $normal (__fish_git_prompt) $normal $prompt_status "$mode_str $hub_status_str" "> "
 end
