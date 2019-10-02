@@ -11,3 +11,4 @@ home/.vim/view
 .ropeproject
 *.cert
 home/.config/fish/functions
+home/.config/fish/functions/fundle.fish
