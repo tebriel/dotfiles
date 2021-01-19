@@ -2,7 +2,7 @@
 
 " Get rid of old vi nastiness
 set nocompatible
-set shell=/bin/bash
+"set shell=/bin/bash
 
 " VUNDLE
 " -----------------------------------------------------------------------------
@@ -11,7 +11,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 "Bundle 'username/reponame'
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " General Utility
 Bundle 'ctrlpvim/ctrlp.vim'
@@ -21,18 +21,22 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'ciaranm/securemodelines'
 Bundle 'rking/ag.vim'
 Bundle 'farseer90718/vim-taskwarrior'
+"Bundle 'direnv/direnv.vim'
+
 " Dependency for vim-bazel
 Bundle 'google/vim-maktaba'
 Bundle 'bazelbuild/vim-bazel'
 
 " Visual Stuff
 Bundle 'bling/vim-airline'
-Bundle 'NLKNguyen/papercolor-theme'
+Bundle 'dracula/vim'
+" Bundle 'NLKNguyen/papercolor-theme'
 
 " Language Tools
 " Bundle 'klen/python-mode'
 Bundle 'fatih/vim-go'
 Bundle 'scrooloose/syntastic'
+Bundle 'mtscout6/syntastic-local-eslint.vim'
 Bundle 'valloric/YouCompleteMe'
 
 " Language Syntax
@@ -47,6 +51,8 @@ Bundle 'Konfekt/FastFold'
 Bundle 'lepture/vim-jinja'
 Bundle 'leafgarland/typescript-vim'
 Bundle 'rust-lang/rust.vim'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'vim-test/vim-test'
 
 call vundle#end() " required
 
@@ -174,9 +180,9 @@ set wildignore+=django-piston
 " colorscheme solarized
 
 " papercolor-theme
-set t_Co=256 " Required, possibly
-set background=dark
-colorscheme PaperColor
+" set t_Co=256 " Required, possibly
+" set background=light
+" colorscheme PaperColor
 
 " -----------------------------------------------------------------------------
 " pymode settings    (python)
@@ -222,6 +228,8 @@ let g:syntastic_python_flake8_args = "--config $HOME/.flake8"
 let g:syntastic_rust_checkers = ['cargo']
 let g:syntastic_sql_checkers = ['sqlint']
 let g:syntastic_typescript_checkers = ['tslint --type-check']
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_eslint_exec ='npm run lint --'
 " Helps fix the speed issues in vim
 " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 " Sometimes go stuff doesn't appear in the small buffer
@@ -283,6 +291,16 @@ let g:go_highlight_build_constraints = 1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_max_height = 30
 let g:ctrlp_custom_ignore = { 'dir': 'vendor$\|tmp' }
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 " -----------------------------------------------------------------------------
-"
 
+" -----------------------------------------------------------------------------
+" vim-test.vim
+" -----------------------------------------------------------------------------
+let test#javascript#jest#options = "--runInBand --bail --forceExit"
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
+" -----------------------------------------------------------------------------

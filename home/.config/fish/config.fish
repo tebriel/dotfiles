@@ -86,9 +86,21 @@ function main_config -d "Set up all fish config"
     python_env
     extra_funcs
     github_token
+    eval (hub alias -s fish)
     # blackbox_env
     # keychain_stuff
     # iterm3_env
+    status --is-interactive; and source (rbenv init -|psub)
+    # set PATH "$HOME/.nodenv/shims" $PATH
 end
 
 main_config
+
+starship init fish | source
+
+source (brew --prefix asdf)"/asdf.fish"
+
+# Direnv plugin for asdf
+eval (direnv hook fish)
+
+set -gx SSH_AUTH_SOCK /Users/tebriel/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh

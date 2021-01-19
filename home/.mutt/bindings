@@ -38,7 +38,7 @@ bind generic	<space>		select-entry
 bind generic	\r		select-entry
 bind generic	\n		select-entry
 # bind generic	!		shell-escape
-macro generic !		"<shell-escape>~/.virtualenvs/mutt/bin/offlineimap<enter>"
+macro generic !		"<shell-escape>~/.asdf/installs/python/2.7.18/bin/offlineimap<enter>"
 bind generic	t		tag-entry
 bind generic	+		tag-prefix
 bind generic	=		tag-prefix
@@ -92,7 +92,7 @@ bind index	p		recall-message
 bind index	z		resend-message
 bind index	r		reply
 bind index	s		save-message
-macro index     S               "<enter-command>unset wait_key<enter><shell-escape>~/.mutt/mutt-notmuch.py /home/cmoultrie/mail/cmoultrie/search_results<enter><change-folder-readonly>/home/cmoultrie/mail/cmoultrie/search_results<enter>" "search mail (using notmuch)"
+macro index     S               "<enter-command>unset wait_key<enter><shell-escape>~/.mutt/mutt-notmuch.py /Users/tebriel/.mail/tebriel-github.com/search_results<enter><change-folder-readonly>/Users/tebriel/.mail/tebriel-github.com/search_results<enter>" "search mail (using notmuch)"
 bind index	/		search
 bind index	n		search-next
 bind index	N		search-opposite
@@ -116,7 +116,7 @@ bind index	W		clear-flag
 bind index	w		set-flag
 
 # bind pager
-macro pager	!		"<shell-escape>~/.virtualenvs/mutt/bin/offlineimap<enter>"
+macro pager	!		"<shell-escape>~/.asdf/installs/python/2.7.18/bin/offlineimap<enter>"
 bind pager	G		bottom
 bind pager	\cE		bottom
 bind pager	<end>		bottom
@@ -177,7 +177,7 @@ bind pager	<home>		top
 bind pager	u		undelete-message
 bind pager	v		view-attachments
 
-macro pager	l		"| elinks -force-html; clear\n"
+macro pager	l		"<pipe-message>elinks -force-html; clear<return>"
 
 # bind alias
 bind alias	/		search

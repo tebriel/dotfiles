@@ -10,12 +10,13 @@ set mail_check=1                          # Set the interval for checking for ne
 
 set use_envelope_from=yes
 set realname="Chris Moultrie"             # our real name
-set from="cmoultrie@pindrop.com"
+set from="tebriel@github.com"
 set hidden_host                           # Hide host details.
 set envelope_from                         # set the envelope-from information
 set reverse_name=yes                      # build From: in the reply based on the To: address (must have
 
-set folder=/home/cmoultrie/mail/cmoultrie/
+set folder=/Users/tebriel/.mail/tebriel-github.com/
+# set folder=/Users/tebriel/.mail/github-notifications/
 set spoolfile = "+INBOX"
 # Other special folders.
 set mbox      = "+archive"
@@ -61,10 +62,10 @@ set mime_forward                          # Forward message as MIME attachments.
 set pager_context=3                       # Display 3 lines of context in pager.
 set nostrict_threads                      # Lets have some fuzzy threading.
 set sendmail_wait=0                       # wait around for sendmail. (-1 was previous value)
-set sendmail="/usr/bin/msmtp -a cmoultrie" # Use msmtprc to send email using the cmoultrie user
+set sendmail="/usr/local/bin/msmtp -a tebriel" # Use msmtprc to send email using the tebriel user
 unset record                              # Don't append sent email to disk
 set fcc_clear                             # Keep fcc's clear of signatues and encryption.
-set pipe_decode=yes                       # Don't decode messages when piping--Now set them for urlview!
+set pipe_decode=no                        # Don't decode messages when piping--Now set them for urlview!
 set text_flowed                           # label messages as format-flowed
                                           # Print via a2ps
 #set print_command="a2ps -1gEmail --borders=no --strip=3"
@@ -89,12 +90,12 @@ source ~/.mutt/bindings                   # Define key bindings.
 source ~/.mutt/macros                     # Define macros.
 # source ~/.mutt/colours                   # Define colours.
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc # Solarized Scheme
-source ~/.mutt/zenBurn.colors
+#source ~/.mutt/zenBurn.colors
 # source ~/.mutt/solarized.colors
 # source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
 # source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
 source ~/.mutt/sidebar                          # Define sidebar support (requires sidebar patch)
-source ~/.mutt/gpg                        # GPG File
+# source ~/.mutt/gpg                        # GPG File
 #source ~/.mutt/smime                      # smime file
 #source ~/.mutt-defaults                   # Default Sig
 source ~/.mutt/auto_view                  # Auto-View Config
@@ -103,7 +104,9 @@ source ~/.mutt/auto_view                  # Auto-View Config
 set signature="~/.signature" #default signature
 
 # HTML is the last option.
-alternative_order text/enriched text/plain text/html
+alternative_order text/plain text/enriched text/html
 
 # Last, but not least, get mutt to display its version on startup.
 push <show-version>
+
+source ~/.mutt/dracula.muttrc

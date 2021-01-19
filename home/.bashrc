@@ -26,3 +26,9 @@ ulimit -n 1200
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export SSH_AUTH_SOCK=/Users/tebriel/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+eval "$(rbenv init -)"
+eval "$(nodenv init -)"

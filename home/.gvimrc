@@ -1,2 +1,2 @@
-set guifont=Source\ Code\ Pro\ for\ Powerline:h14
-colorscheme solarized
+set guifont=JetBrains\ Mono\ for\ Powerline:h18
+colorscheme PaperColor
