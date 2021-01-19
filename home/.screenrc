@@ -7,10 +7,8 @@ hardstatus alwayslastline
 
 shell "/usr/local/bin/zsh"
 
-# possible transparency fix?
 defbce on
-term screen-bce
-# term screen-256color
+term screen-256color
 
 #backtick 101 10 10 /Users/cmoultrie/bin/ci-status.sh ${PWD}
 #backtick 102 10 10 /Users/cmoultrie/bin/failcount.sh
