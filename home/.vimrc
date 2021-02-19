@@ -7,6 +7,8 @@ set nocompatible
 " VUNDLE
 " -----------------------------------------------------------------------------
 filetype off
+set rtp+=/usr/local/opt/fzf
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -14,18 +16,15 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " General Utility
-Bundle 'ctrlpvim/ctrlp.vim'
+"Bundle 'ctrlpvim/ctrlp.vim'
+Bundle 'direnv/direnv.vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'ciaranm/securemodelines'
 Bundle 'rking/ag.vim'
 Bundle 'farseer90718/vim-taskwarrior'
-"Bundle 'direnv/direnv.vim'
-
-" Dependency for vim-bazel
-Bundle 'google/vim-maktaba'
-Bundle 'bazelbuild/vim-bazel'
+Bundle 'junegunn/fzf'
 
 " Visual Stuff
 Bundle 'bling/vim-airline'
@@ -35,9 +34,16 @@ Bundle 'dracula/vim'
 " Language Tools
 " Bundle 'klen/python-mode'
 Bundle 'fatih/vim-go'
-Bundle 'scrooloose/syntastic'
-Bundle 'mtscout6/syntastic-local-eslint.vim'
+Bundle 'dense-analysis/ale'
+" Bundle 'scrooloose/syntastic'
+" Bundle 'mtscout6/syntastic-local-eslint.vim'
 Bundle 'valloric/YouCompleteMe'
+
+" Ruby Stuff
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-dispatch'
 
 " Language Syntax
 Bundle 'dag/vim-fish'
@@ -194,8 +200,7 @@ let g:pymode_lint_config = '$HOME/pylint.rc'
 let g:pymode_options_max_line_length = 110
 let g:pymode_trim_whitespaces = 1 " Auto-trim whitespace on save
 let g:pymode_options_colorcolumn = 1 " Show a colorcolumn at max line length
-let g:pymode_lint = 0 " Let's use syntastic for python checking
-let g:syntastic_loc_list_height = 5 " Shorten the quickfix height to 5
+" let g:pymode_lint = 0 " Let's use syntastic for python checking
 " let g:pymode_python = 'python3' " Always use python2
 " au FileType python nmap <leader>2 let g:pymode_python=python <CR>
 " au FileType python nmap <leader>3 let g:pymode_python=python3 <CR>
@@ -219,30 +224,41 @@ autocmd Filetype groovy setlocal ts=2 sts=2 sw=2
 " syntastic settings
 " -----------------------------------------------------------------------------
 " golang syntastic checking
-let g:syntastic_go_checkers = ['go', 'govet', 'golint', 'errcheck']
-" let g:syntastic_go_govet_args = "-shadow=true" Syntastic doesn't allow govet args, see the help
-let g:syntastic_sh_checkers = ['shellcheck']
-let g:syntastic_sh_shellcheck_args = "-x"
-let g:syntastic_python_checkers = ['python', 'flake8']
-let g:syntastic_python_flake8_args = "--config $HOME/.flake8"
-let g:syntastic_rust_checkers = ['cargo']
-let g:syntastic_sql_checkers = ['sqlint']
-let g:syntastic_typescript_checkers = ['tslint --type-check']
-" let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_javascript_eslint_exec ='npm run lint --'
-" Helps fix the speed issues in vim
-" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-" Sometimes go stuff doesn't appear in the small buffer
-let g:go_list_type = "quickfix"
-" Yaml checker for vim/syntastic
-let g:syntastic_yaml_checkers = ['yamllint']
-" Syntastic settings
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" let g:syntastic_go_checkers = ['go', 'govet', 'golint', 'errcheck']
+" " let g:syntastic_go_govet_args = "-shadow=true" Syntastic doesn't allow govet args, see the help
+" let g:syntastic_sh_checkers = ['shellcheck']
+" let g:syntastic_sh_shellcheck_args = "-x"
+" let g:syntastic_python_checkers = ['python', 'flake8']
+" let g:syntastic_python_flake8_args = "--config $HOME/.flake8"
+" let g:syntastic_rust_checkers = ['cargo']
+" let g:syntastic_sql_checkers = ['sqlint']
+" let g:syntastic_typescript_checkers = ['tslint --type-check']
+" " let g:syntastic_loc_list_height = 5 " Shorten the quickfix height to 5
+" " let g:syntastic_ruby_checkers = ['rubocop']
+" " let g:syntastic_javascript_checkers = ['eslint']
+" " let g:syntastic_javascript_eslint_exec ='npm run lint --'
+" " Helps fix the speed issues in vim
+" " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+" " Sometimes go stuff doesn't appear in the small buffer
+" let g:go_list_type = "quickfix"
+" " Yaml checker for vim/syntastic
+" let g:syntastic_yaml_checkers = ['yamllint']
+" " Syntastic settings
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" -----------------------------------------------------------------------------
+
+" -----------------------------------------------------------------------------
+" ale settings
+" -----------------------------------------------------------------------------
+let g:ale_linters = {
+\   'ruby': ['rubocop'],
+\}
+let g:airline#extensions#ale#enabled = 1
 " -----------------------------------------------------------------------------
 
 " -----------------------------------------------------------------------------
@@ -288,19 +304,25 @@ let g:go_highlight_build_constraints = 1
 " -----------------------------------------------------------------------------
 " ctrlp.vim
 " -----------------------------------------------------------------------------
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_max_height = 30
-let g:ctrlp_custom_ignore = { 'dir': 'vendor$\|tmp' }
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" let g:ctrlp_map = '<c-p>'
+" let g:ctrlp_max_height = 30
+" let g:ctrlp_custom_ignore = { 'dir': 'vendor$\|tmp' }
+" let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" -----------------------------------------------------------------------------
+
+" -----------------------------------------------------------------------------
+" fzf.vim
+" -----------------------------------------------------------------------------
+nmap <C-P> :FZF<CR>
 " -----------------------------------------------------------------------------
 
 " -----------------------------------------------------------------------------
 " vim-test.vim
 " -----------------------------------------------------------------------------
-let test#javascript#jest#options = "--runInBand --bail --forceExit"
 nmap <silent> t<C-n> :TestNearest<CR>
 nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
+let test#strategy = "dispatch"
 " -----------------------------------------------------------------------------
