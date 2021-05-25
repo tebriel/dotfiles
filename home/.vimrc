@@ -25,6 +25,8 @@ Bundle 'ciaranm/securemodelines'
 Bundle 'rking/ag.vim'
 Bundle 'farseer90718/vim-taskwarrior'
 Bundle 'junegunn/fzf'
+" Figure out tabs
+Bundle 'tpope/vim-sleuth'
 
 " Visual Stuff
 Bundle 'bling/vim-airline'
@@ -59,6 +61,7 @@ Bundle 'leafgarland/typescript-vim'
 Bundle 'rust-lang/rust.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-test/vim-test'
+Bundle 'LnL7/vim-nix'
 
 call vundle#end() " required
 
@@ -206,18 +209,19 @@ let g:pymode_options_colorcolumn = 1 " Show a colorcolumn at max line length
 " au FileType python nmap <leader>3 let g:pymode_python=python3 <CR>
 " -----------------------------------------------------------------------------
 
+" The following should be unnecessary because of vim-sleuth
 " -----------------------------------------------------------------------------
 " filetype settings
 " -----------------------------------------------------------------------------
 " ruby 2 space config
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+" autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 " yaml 2 space config
-autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
+" autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
 " yaml 2 space config
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
-autocmd Filetype html setlocal ts=2 sts=2 sw=2
-autocmd Filetype groovy setlocal ts=2 sts=2 sw=2
+" autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
+" autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
+" autocmd Filetype html setlocal ts=2 sts=2 sw=2
+" autocmd Filetype groovy setlocal ts=2 sts=2 sw=2
 " -----------------------------------------------------------------------------
 
 " -----------------------------------------------------------------------------
