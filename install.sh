@@ -3,6 +3,25 @@
 
 set -euo pipefail
 
+SCRIPT_NAME=${1:-"install.sh"}
+# Send all our -x output to this file for later debugging
+LOG_DIR="$HOME/install.sh.logs"
+mkdir -p "${LOG_DIR}"
+exec 1>"${LOG_DIR}/stdout"
+exec 2>"${LOG_DIR}/stderr"
+exec 19>"${LOG_DIR}/trace"
+BASH_XTRACEFD=19
+
+set -x
+
+echo "${SCRIPT_NAME} start: $(date)"
+
+function system_ruby() {
+    if ! hash ruby; then
+        apt install -y ruby-full
+    fi
+}
+
 function copy_dotfiles() {
     # Copy our dotfiles
     gem install homesick
@@ -45,8 +64,11 @@ function configure_vim() {
 # Set zsh as our default shell
 chsh -s /bin/zsh
 
+system_ruby
 copy_dotfiles
 install_starship
 install_homebrew
 configure_asdf
 configure_vim
+
+echo "${SCRIPT_NAME} end $(date)"
