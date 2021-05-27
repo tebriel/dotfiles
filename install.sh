@@ -18,7 +18,7 @@ echo "${SCRIPT_NAME} start: $(date)"
 
 function system_ruby() {
     if ! hash ruby; then
-        apt install -y ruby-full
+        sudo apt install -y ruby-full
     fi
 }
 
@@ -28,18 +28,18 @@ function copy_dotfiles() {
 
     homesick clone tebriel/dotfiles
 
-    homesick link dotfiles
+    homesick link --force dotfiles
 }
 
 function install_starship() {
     curl -o starship-install.sh -fsSL https://starship.rs/install.sh
-    bash starship-install.sh -y
+    sudo bash starship-install.sh -y
 }
 
 function install_homebrew() {
     NONINTERACTIVE=1 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     # shellcheck disable=SC2016
-    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /root/.zprofile
+    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> "${HOME}/.zprofile"
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     brew install gcc asdf direnv rbenv zoxide ctags task vim gcc@5 cmake
 }
@@ -55,14 +55,14 @@ function configure_vim() {
     vim +PluginInstall +qall
 
     # youcompleteme
-    apt install -y build-essential python3-dev
-    apt install -y mono-complete golang nodejs default-jdk npm
+    sudo apt install -y build-essential python3-dev
+    sudo apt install -y mono-complete golang nodejs default-jdk npm
     pushd ~/.vim/bundle/YouCompleteMe
     python3 install.py --all
 }
 
 # Set zsh as our default shell
-chsh -s /bin/zsh
+sudo chsh -s /bin/zsh
 
 system_ruby
 copy_dotfiles
