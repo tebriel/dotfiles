@@ -3,6 +3,8 @@
 
 set -euo pipefail
 
+exit
+
 SCRIPT_NAME=${1:-"install.sh"}
 # Send all our -x output to this file for later debugging
 LOG_DIR="$HOME/install.sh.logs"
