@@ -1,0 +1,64 @@
+"Fix bundle stuff
+filetype plugin indent on
+syntax enable
+
+" Set statements
+" -----------------------------------------------------------------------------
+set backspace=indent,eol,start "Backspace goes back over indents, \n, and start?
+set expandtab
+set relativenumber
+set number
+set shiftwidth=4
+set tabstop=4
+set ts=4
+set softtabstop=4
+set et "Expand tabs
+set tw=110 "Line width is now 99 chars
+" autocmd FileType python set colorcolumn=110
+set autoindent "Pseudo-smart, uses parent indent level
+set laststatus=2 "Give us a persistent status line
+set shiftround " fancy tabbing so that we don't have irregular tabs
+set encoding=utf-8 " For unicode glyphs
+set pastetoggle=<F2> "Press to go into paste mode to avoid crazy tabbing
+set clipboard=unnamed "Lets us use the macos clipboard from within vim
+set autoread "Pull in new buffers when files changed behind the scenes (use :checktime after pulling)
+set completeopt-=preview " Don't show the preview window when doing completions and shit.
+
+" Whitespace alerts
+au BufNewFile,BufRead * match ErrorMsg '\s\+$'
+
+" AutoCommands for Events (event bindings)
+" -----------------------------------------------------------------------------
+au VimResized * :wincmd =
+" -----------------------------------------------------------------------------
+
+" Map keybindings for betterer awesomeness
+" -----------------------------------------------------------------------------
+" Opens an edit command with the path of the currently edited file filled in
+" Normal mode: <Leader>e
+" Changes leader to , instead of default: \
+let mapleader = ","
+" Never have I wanted that stupid window
+map q: :q
+nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+" Clear match highlighting
+nnoremap <leader><space> :noh<cr>:call clearmatches()<cr>
+" Quick buffer switching - like cmd-tab'ing
+nnoremap <leader><leader> <c-^>
+nnoremap <leader>! :source ~/.vimrc<cr>
+nnoremap <leader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
+"semi-colon is now colon
+nnoremap ; :
+nnoremap <leader>rtw :%s/\s\+$//e<CR>
+nnoremap <leader>ftnl :%s/#012/\r/ge<CR>
+nnoremap <leader>w :wall<CR>
+nnoremap K <nop>
+vnoremap K <nop>
+cnoremap sudow w !sudo tee % >/dev/null
+
+set noswf
+
+set undodir=$TMPDIR/undodir
+set undofile
+set undolevels=1000 "maximum number of changes that can be undone
+set undoreload=10000 "maximum number lines to save for undo on a buffer reload

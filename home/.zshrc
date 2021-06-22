@@ -5,6 +5,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Configure Nix
+if [ -e /Users/tebriel/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/tebriel/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
+# 
 # Add profiling
 # run `time zsh -i -c exit` to determine how long it took, also uncommment the zprof line at the end
 # zmodload zsh/zprof
@@ -48,7 +52,7 @@ export FZF_COMPLETION_OPTS='--border --info=inline'
 # # command for listing path candidates.
 # # - The first argument to the function ($1) is the base path to start traversal
 # # - See the source code (completion.{bash,zsh}) for the details.
- _fzf_compgen_path() {
+_fzf_compgen_path() {
    fd --hidden --follow --exclude ".git" . "$1"
 }
 
@@ -70,7 +74,6 @@ eval "$(zoxide init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-if [ -e /Users/tebriel/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/tebriel/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 # Load custom functions
 fpath+=$HOME/.config/zsh/functions
