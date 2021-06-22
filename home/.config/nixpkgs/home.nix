@@ -117,10 +117,7 @@ in {
     initExtraFirst = builtins.readFile ../zsh/initExtraFirst.zsh;
     initExtra = builtins.readFile ../zsh/init.zsh + builtins.readFile ../zsh/p10k.zsh;
     initExtraBeforeCompInit = builtins.readFile ../zsh/initExtraBeforeCompInit.zsh;
-    defaultKeymap = "vicmd";
-    shellAliases = {
-      asdf = "/usr/local/bin/asdf";
-    };
+    # defaultKeymap = "vicmd";
     plugins = [{
       name = "powerlevel10k";
       src = powerlevel10k;

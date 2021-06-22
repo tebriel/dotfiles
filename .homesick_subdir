@@ -4,3 +4,4 @@
 .config/screen
 .config/vim
 .config/zsh
+.config/taskwarrior
