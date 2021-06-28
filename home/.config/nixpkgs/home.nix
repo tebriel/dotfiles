@@ -78,6 +78,7 @@ in {
 
   home.packages = [
     pkgs.direnv
+    pkgs.dotnet-sdk_5
     pkgs.fd
     pkgs.gh
     pkgs.git
@@ -208,6 +209,7 @@ let g:go_highlight_build_constraints = 1
       typescript-vim
       rust-vim
       vim-ruby
+      vim-hcl
 
       {
         plugin = vim-test;
