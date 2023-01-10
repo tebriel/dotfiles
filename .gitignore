@@ -12,3 +12,4 @@ home/.vim/view
 *.cert
 home/.config/fish/functions
 home/.config/fish/functions/fundle.fish
+nodemon.json

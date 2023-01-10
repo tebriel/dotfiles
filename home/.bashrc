@@ -32,6 +32,3 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export SSH_AUTH_SOCK=/Users/tebriel/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
-
-if [ -e /Users/tebriel/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/tebriel/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH

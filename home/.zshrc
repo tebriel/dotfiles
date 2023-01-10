@@ -5,19 +5,15 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Configure Nix
-if [ -e /Users/tebriel/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/tebriel/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
-# 
 # Add profiling
 # run `time zsh -i -c exit` to determine how long it took, also uncommment the zprof line at the end
 # zmodload zsh/zprof
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$HOME/.asdf/bin:$PATH"
+# export PATH="$HOME/.asdf/bin:$PATH"
 
 # Init asdf, this should come before compinit
-. $(brew --prefix asdf)/asdf.sh
+. $(brew --prefix asdf)/libexec/asdf.sh
 # Hook direnv into your shell.
 eval "$(asdf exec direnv hook zsh)"
 
@@ -31,16 +27,12 @@ fi
 
 export EDITOR=vim
 
-# ??? Pathing
-# export PATH="/usr/local/sbin:$PATH"
+# Brew Pathing
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 # Node Pathing
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # Python Pathing
 export PATH="$HOME/.local/bin:$PATH"
-
-# Allow secretive to do ssh/git auth
-export SSH_AUTH_SOCK=/Users/tebriel/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
-
 
 ## FZF Config ##
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
@@ -78,5 +70,10 @@ eval "$(zoxide init zsh)"
 # Load custom functions
 fpath+=$HOME/.config/zsh/functions
 
-# Must specifically call them out
-autoload thehub
+if [ -z "$KATYUSHA_FAST_SSH_AGENT" ]; then
+    # Start the ssh-agent shipped by homebrew
+    eval $(/usr/local/bin/ssh-agent) 2&>1 > /dev/null
+    # But use the apple ssh-add, as it has access to the keychain
+    /usr/bin/ssh-add -K 2&>1 > /dev/null
+    export KATYUSHA_FAST_SSH_AGENT=1
+fi

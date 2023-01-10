@@ -229,7 +229,7 @@ let g:pymode_options_colorcolumn = 1 " Show a colorcolumn at max line length
 " -----------------------------------------------------------------------------
 " golang syntastic checking
 " let g:syntastic_go_checkers = ['go', 'govet', 'golint', 'errcheck']
-" " let g:syntastic_go_govet_args = "-shadow=true" Syntastic doesn't allow govet args, see the help
+" let g:syntastic_go_govet_args = "-shadow=true" Syntastic doesn't allow govet args, see the help
 " let g:syntastic_sh_checkers = ['shellcheck']
 " let g:syntastic_sh_shellcheck_args = "-x"
 " let g:syntastic_python_checkers = ['python', 'flake8']

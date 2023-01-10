@@ -108,6 +108,7 @@ in {
   programs.fzf = {
     enable = true;
     fileWidgetCommand = "fd --type f --hidden --follow --exclude .git";
+    defaultCommand = "fd --type f --hidden --follow --exclude .git";
     defaultOptions = [ "--border" "--info=inline" ];
   };
 

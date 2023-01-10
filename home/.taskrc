@@ -35,3 +35,4 @@ taskd.ca=~/.task/Inthe.AM/ca.cert.pem
 taskd.server=taskwarrior.inthe.am:53589
 taskd.credentials=inthe_am/tebriel/ff0bb7e3-6725-4e49-a7bd-ac5162ca2062
 taskd.trust=ignore hostname
+news.version=2.6.0
