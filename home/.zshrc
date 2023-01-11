@@ -28,7 +28,7 @@ fi
 export EDITOR=vim
 
 # Brew Pathing
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH"
 # Node Pathing
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # Python Pathing
@@ -72,8 +72,8 @@ fpath+=$HOME/.config/zsh/functions
 
 if [ -z "$KATYUSHA_FAST_SSH_AGENT" ]; then
     # Start the ssh-agent shipped by homebrew
-    eval $(/usr/local/bin/ssh-agent) 2&>1 > /dev/null
+    eval $($(brew --prefix)/bin/ssh-agent) 2&>1 > /dev/null
     # But use the apple ssh-add, as it has access to the keychain
-    /usr/bin/ssh-add -K 2&>1 > /dev/null
+    $(brew --prefix)/ssh-add -K 2&>1 > /dev/null
     export KATYUSHA_FAST_SSH_AGENT=1
 fi
