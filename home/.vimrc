@@ -16,52 +16,52 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " General Utility
-"Bundle 'ctrlpvim/ctrlp.vim'
-Bundle 'direnv/direnv.vim'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-fugitive'
-Bundle 'ciaranm/securemodelines'
-Bundle 'rking/ag.vim'
-Bundle 'farseer90718/vim-taskwarrior'
-Bundle 'junegunn/fzf'
+"Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'direnv/direnv.vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-fugitive'
+Plugin 'ciaranm/securemodelines'
+Plugin 'rking/ag.vim'
+Plugin 'junegunn/fzf'
 " Figure out tabs
-Bundle 'tpope/vim-sleuth'
+Plugin 'tpope/vim-sleuth'
 
 " Visual Stuff
-Bundle 'bling/vim-airline'
-Bundle 'dracula/vim'
-" Bundle 'NLKNguyen/papercolor-theme'
+Plugin 'bling/vim-airline'
+Plugin 'dracula/vim'
+" Plugin 'NLKNguyen/papercolor-theme'
 
 " Language Tools
-" Bundle 'klen/python-mode'
-Bundle 'fatih/vim-go'
-Bundle 'dense-analysis/ale'
-" Bundle 'scrooloose/syntastic'
-" Bundle 'mtscout6/syntastic-local-eslint.vim'
-Bundle 'valloric/YouCompleteMe'
+" Plugin 'klen/python-mode'
+Plugin 'fatih/vim-go'
+Plugin 'dense-analysis/ale'
+" Plugin 'scrooloose/syntastic'
+" Plugin 'mtscout6/syntastic-local-eslint.vim'
+Plugin 'valloric/YouCompleteMe'
+Plugin 'psf/black'
 
 " Ruby Stuff
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-dispatch'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-dispatch'
 
 " Language Syntax
-Bundle 'dag/vim-fish'
-Bundle 'robbles/logstash.vim'
-Bundle 'ingydotnet/yaml-vim'
-Bundle 'vim-scripts/groovy.vim'
-Bundle 'chikamichi/mediawiki.vim'
-Bundle 'tpope/vim-markdown'
-Bundle 'groenewege/vim-less'
-Bundle 'Konfekt/FastFold'
-Bundle 'lepture/vim-jinja'
-Bundle 'leafgarland/typescript-vim'
-Bundle 'rust-lang/rust.vim'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'vim-test/vim-test'
-Bundle 'LnL7/vim-nix'
+Plugin 'dag/vim-fish'
+Plugin 'robbles/logstash.vim'
+Plugin 'ingydotnet/yaml-vim'
+Plugin 'vim-scripts/groovy.vim'
+Plugin 'chikamichi/mediawiki.vim'
+Plugin 'tpope/vim-markdown'
+Plugin 'groenewege/vim-less'
+Plugin 'Konfekt/FastFold'
+Plugin 'lepture/vim-jinja'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'rust-lang/rust.vim'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'vim-test/vim-test'
+Plugin 'LnL7/vim-nix'
 
 call vundle#end() " required
 
@@ -208,6 +208,11 @@ let g:pymode_options_colorcolumn = 1 " Show a colorcolumn at max line length
 " au FileType python nmap <leader>2 let g:pymode_python=python <CR>
 " au FileType python nmap <leader>3 let g:pymode_python=python3 <CR>
 " -----------------------------------------------------------------------------
+
+augroup black_on_save
+  autocmd!
+  autocmd BufWritePre *.py Black
+augroup end
 
 " The following should be unnecessary because of vim-sleuth
 " -----------------------------------------------------------------------------

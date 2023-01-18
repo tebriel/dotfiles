@@ -13,3 +13,4 @@ home/.vim/view
 home/.config/fish/functions
 home/.config/fish/functions/fundle.fish
 nodemon.json
+home/.vim/black
