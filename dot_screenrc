@@ -1,0 +1,54 @@
+#kill startup message
+startup_message off
+
+defscrollback 1024
+hardstatus on
+hardstatus alwayslastline
+
+shell "/opt/homebrew/bin/zsh"
+
+# defbce on
+term screen-256color
+
+#backtick 101 10 10 /Users/cmoultrie/bin/ci-status.sh ${PWD}
+#backtick 102 10 10 /Users/cmoultrie/bin/failcount.sh
+#backtick 103 2 2 /Users/cmoultrie/bin/escount-print.sh
+
+#hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}% w %=%{..G} %H %{..Y} %m/%d %C%a "
+hardstatus string '%{= kg}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{= g}][ %{G}%d %M %c%{= g} ]'
+
+# read and write screen clipboard to X clipboard.
+# bind > eval writebuf 'exec sh -c "/usr/bin/pbcopy > screen/screen-exchange"'
+# bind < eval writebuf 'exec sh -c "/usr/bin/pbcopy < screen/screen-exchange"'
+# bindkey -m \015 eval 'stuff \015' 'writebuf' 'exec sh -c "/usr/bin/pbcopy < /tmp/screen-exchange"'
+# ctrl-a O will attempt to open whatever is in the paste buffer
+# bind O eval writebuf 'exec fish -c "cat /tmp/screen-exchange | xargs open"'
+
+# # vim focus bindings
+# bind j focus down
+# bind k focus up
+# bind h focus left
+# bind l focus right
+# bind t focus top
+# bind b focus bottom
+# # vim focus bindings with ctrl too
+# bind C-j focus down
+# bind C-k focus up
+# bind C-h focus left
+# bind C-l focus right
+# bind C-t focus top
+# bind C-b focus bottom
+
+# # Replace the old c-a k binding with c-a K to handle the above keybindings
+# bind K kill
+
+# # Build out the quad layout
+# split
+# split -v
+# focus
+# focus
+# split -v
+# focus
+# resize -h -30
+# focus
+# # Shrink that bottom right one
