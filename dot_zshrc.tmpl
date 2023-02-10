@@ -10,6 +10,12 @@ fi
 # zmodload zsh/zprof
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+{{ if eq .chezmoi.os "darwin" }}
+  # darwin
+{{ else if eq .chezmoi.os "linux" }}
+  export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+{{ end }}
+
 # export PATH="$HOME/.asdf/bin:$PATH"
 
 # Brew Pathing

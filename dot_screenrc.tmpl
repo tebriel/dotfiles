@@ -5,7 +5,11 @@ defscrollback 1024
 hardstatus on
 hardstatus alwayslastline
 
+{{ if eq .chezmoi.os "darwin" }}
 shell "/opt/homebrew/bin/zsh"
+{{ else if eq .chezmoi.os "linux" }}
+shell "/usr/bin/zsh"
+{{ end }}
 
 # defbce on
 term screen-256color
