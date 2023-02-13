@@ -1,0 +1,6 @@
+# Don't sync the entire photo album
+!/Pictures/Camera Roll/*
+
+# Everything Else
+/*
+
