@@ -10,12 +10,17 @@ fi
 # zmodload zsh/zprof
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export EDITOR=vim
+
 {{ if eq .chezmoi.os "darwin" }}
   # darwin
+{{ else if eq .chezmoi.osRelease.id "nixos" }}
+  # nix
 {{ else if eq .chezmoi.os "linux" }}
   export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 {{ end }}
 
+{{ if ne .chezmoi.osRelease.id "nixos" }}
 # export PATH="$HOME/.asdf/bin:$PATH"
 
 # Brew Pathing
@@ -29,6 +34,7 @@ export PATH="$HOME/bin:$PATH"
 
 # Init asdf, this should come before compinit
 . $(brew --prefix asdf)/libexec/asdf.sh
+
 # Hook direnv into your shell.
 eval "$(asdf exec direnv hook zsh)"
 
@@ -39,8 +45,6 @@ if type brew &>/dev/null; then
   autoload -Uz compinit
   compinit
 fi
-
-export EDITOR=vim
 
 ## FZF Config ##
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
@@ -72,9 +76,6 @@ eval "$(rbenv init -)" # 200ms
 eval "$(zoxide init zsh)"
 # zprof
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # Load custom functions
 fpath+=$HOME/.config/zsh/functions
 
@@ -85,3 +86,8 @@ if [ -z "$KATYUSHA_FAST_SSH_AGENT" ]; then
     $(brew --prefix)/ssh-add -K 2&>1 > /dev/null
     export KATYUSHA_FAST_SSH_AGENT=1
 fi
+
+{{ end }}
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
