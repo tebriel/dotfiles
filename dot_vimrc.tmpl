@@ -1,3 +1,4 @@
+{{ if ne .chezmoi.osRelease.id "nixos" }}
 " ~/.vimrc Thanks to pthrash
 
 " Get rid of old vi nastiness
@@ -336,3 +337,4 @@ nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
 let test#strategy = "dispatch"
 " -----------------------------------------------------------------------------
+{{ end }}
