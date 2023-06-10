@@ -1,3 +1,4 @@
+{{ if ne .chezmoi.osRelease.id "nixos" }}
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -14,13 +15,10 @@ export EDITOR=vim
 
 {{ if eq .chezmoi.os "darwin" }}
   # darwin
-{{ else if eq .chezmoi.osRelease.id "nixos" }}
-  # nix
 {{ else if eq .chezmoi.os "linux" }}
   export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 {{ end }}
 
-{{ if ne .chezmoi.osRelease.id "nixos" }}
 # export PATH="$HOME/.asdf/bin:$PATH"
 
 # Brew Pathing
@@ -89,4 +87,6 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+{{ else }}
+# Welcome to nix
 {{ end }}
