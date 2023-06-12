@@ -1,4 +1,6 @@
-{{ if ne .chezmoi.osRelease.id "nixos" }}
+{{- if and (hasKey .chezmoi.osRelease "id") (eq .chezmoi.osRelease.id "nixos") }}
+    # NixOS
+{{- else }}
 #kill startup message
 startup_message off
 
@@ -57,4 +59,4 @@ hardstatus string '%{= kg}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{=b kR}(%{W}%n*%f %t
 # resize -h -30
 # focus
 # # Shrink that bottom right one
-{{ end }}
+{{- end }}
