@@ -1,4 +1,6 @@
-{{ if ne .chezmoi.osRelease.id "nixos" }}
+{{- if and (hasKey .chezmoi.osRelease "id") (eq .chezmoi.osRelease.id "nixos") }}
+    # nixos
+{{- else }}
 " ~/.vimrc Thanks to pthrash
 
 " Get rid of old vi nastiness
