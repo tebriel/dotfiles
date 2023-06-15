@@ -1,2 +1,2 @@
-set guifont=JetBrains\ Mono\ for\ Powerline:h18
-colorscheme PaperColor
+set guifont=JetBrains\ Mono\ Nerd\ Font
+colorscheme dracula
