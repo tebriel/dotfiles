@@ -18,11 +18,11 @@ source /Users/tebriel/.config/op/plugins.sh
 
 export EDITOR=vim
 
-{{ if eq .chezmoi.os "darwin" }}
-  # darwin
-{{ else if eq .chezmoi.os "linux" }}
-  export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
-{{ end }}
+{{- if eq .chezmoi.os "darwin" }}
+export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
+{{- else if eq .chezmoi.os "linux" }}
+export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+{{- end }}
 
 # export PATH="$HOME/.asdf/bin:$PATH"
 
