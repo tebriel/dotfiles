@@ -86,7 +86,7 @@ if [ -z "$KATYUSHA_FAST_SSH_AGENT" ]; then
     # Start the ssh-agent shipped by homebrew
     eval $($(brew --prefix)/bin/ssh-agent) 2&>1 > /dev/null
     # But use the apple ssh-add, as it has access to the keychain
-    $(brew --prefix)/bin/ssh-add -K 2&>1 > /dev/null
+    $(brew --prefix)/bin/ssh-add 2&>1 > /dev/null
     export KATYUSHA_FAST_SSH_AGENT=1
 fi
 
