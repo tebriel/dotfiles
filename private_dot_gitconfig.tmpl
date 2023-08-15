@@ -6,8 +6,10 @@
 [gpg]
 	format = ssh
 
+{{- if ne .OpSSHSignPath "" }}
 [gpg "ssh"]
 	program = {{ .OpSSHSignPath }}
+{{- end }}
 
 [commit]
 	gpgsign = true
