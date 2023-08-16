@@ -3,7 +3,7 @@ Include /Users/tebriel/.colima/ssh_config
 {{- end }}
 
 Host *
-  IdentityAgent {{ .IdentityAgent | quote }}
+  IdentityAgent {{ .IdentityAgent }}
   AddKeysToAgent yes
   IgnoreUnknown UseKeychain
   UseKeychain yes
