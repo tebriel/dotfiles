@@ -9,7 +9,7 @@ hardstatus on
 hardstatus alwayslastline
 
 {{ if eq .chezmoi.os "darwin" }}
-shell "/opt/homebrew/bin/zsh"
+    shell "{{ .ZshPath }}"
 {{ else if eq .chezmoi.os "linux" }}
 shell "/usr/bin/zsh"
 {{ end }}

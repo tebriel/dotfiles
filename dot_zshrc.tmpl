@@ -24,8 +24,6 @@ export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 {{- end }}
 
-# export PATH="$HOME/.asdf/bin:$PATH"
-
 # Brew Pathing
 export PATH="$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH"
 # Node Pathing
@@ -34,12 +32,6 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 # Chezmoi Pathing
 export PATH="$HOME/bin:$PATH"
-
-# Init asdf, this should come before compinit
-. $(brew --prefix asdf)/libexec/asdf.sh
-
-# Hook direnv into your shell.
-eval "$(asdf exec direnv hook zsh)"
 
 # Homebrew Tab Completion
 if type brew &>/dev/null; then
@@ -75,7 +67,6 @@ _fzf_compgen_dir() {
 
 source ~/work/src/github.com/romkatv/powerlevel10k/powerlevel10k.zsh-theme
 
-eval "$(rbenv init -)" # 200ms
 eval "$(zoxide init zsh)"
 # zprof
 
@@ -84,9 +75,9 @@ fpath+=$HOME/.config/zsh/functions
 
 if [ -z "$KATYUSHA_FAST_SSH_AGENT" ]; then
     # Start the ssh-agent shipped by homebrew
-    eval $($(brew --prefix)/bin/ssh-agent) 2&>1 > /dev/null
+    eval $(/Users/tebriel/.nix-profile/bin/ssh-agent) 2&>1 > /dev/null
     # But use the apple ssh-add, as it has access to the keychain
-    $(brew --prefix)/bin/ssh-add 2&>1 > /dev/null
+    /Users/tebriel/.nix-profile/bin/ssh-add 2&>1 > /dev/null
     export KATYUSHA_FAST_SSH_AGENT=1
 fi
 
