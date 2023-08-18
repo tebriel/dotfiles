@@ -1,7 +1,11 @@
 [user]
 	email = 821688+tebriel@users.noreply.github.com
 	name = Chris Moultrie
-	signingkey = {{ .SigningKey }}
+{{- if .WorkComputer }}
+	signingkey = {{ onepasswordRead "op://Github/Github/public key" }}
+{{- else }}
+	signingkey = {{ onepasswordRead "op://Personal/Personal SSH Key/public key" }}
+{{- end }}
 
 [gpg]
 	format = ssh
@@ -18,9 +22,7 @@
 	defaultBranch = main
 
 [credential "https://github.com"]
-	helper = 
 	helper = !{{ .GhPath }} auth git-credential
 
 [credential "https://gist.github.com"]
-	helper = 
 	helper = !{{ .GhPath }} auth git-credential

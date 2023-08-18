@@ -4,6 +4,7 @@ Include /Users/tebriel/.colima/ssh_config
 
 Host *
   IdentityAgent {{ .IdentityAgent }}
+  ForwardAgent yes
   AddKeysToAgent yes
   IgnoreUnknown UseKeychain
   UseKeychain yes
