@@ -258,7 +258,7 @@ leader-timeout=1000
 # doesn't like this, so if your media doesn't open, try set this to false. Tut
 # will remove all files once you close the program.
 # default=true
-delete-temp-files=true
+delete-temp-files=false
 
 [media.image]
 # The program to open images. TUT_OS_DEFAULT equals xdg-open on Linux, open on
@@ -465,7 +465,7 @@ posts=false
 # theme="none" and then you can create your own theme below.
 #
 # default="default"
-theme="default"
+theme="papercolor-light"
 
 # The xrdb prefix used for colors in .Xresources.
 # default="guess"
